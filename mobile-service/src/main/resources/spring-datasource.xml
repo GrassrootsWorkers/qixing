@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!-- 数据库连接池 c3p0 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="initialPoolSize" value="${jdbc.initialPoolSize}" />
+		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
+		<property name="minPoolSize" value="${jdbc.minPoolSize}"/>
+		<property name="maxIdleTime" value="${jdbc.maxIdleTime}" />
+		
+	</bean>
+	<!-- 数据库连接池 druid -->
+	<!-- <bean id="dataSource2" class="com.alibaba.druid.pool.DruidDataSource">
+		驱动
+		<property name="driverClassName" value="${driverClassName}"/>
+		<property name="url" value="${url}"/>
+		<property name="username" value="${username}"/>
+		<property name="password" value="${password}"/>
+	</bean> -->
+</beans>

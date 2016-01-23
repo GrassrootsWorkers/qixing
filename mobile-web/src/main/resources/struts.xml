@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<!-- struts default package -->
+	<package name="struts_package" extends="struts-default" namespace="/">
+
+		<default-interceptor-ref name="openDefaultStack"></default-interceptor-ref>
+		
+		<global-results>
+			<result name="error" type="redirect">www.bing-gou.com</result>
+		</global-results>
+	</package>
+	
+	<package name="struts-interceptor-default-action" extends="struts-interceptor">
+		<default-action-ref name="defaultHandler"/>
+	</package>
+</struts>
