@@ -10,6 +10,8 @@ public class CycEssay implements Serializable {
     private Integer cysReportId;
 
     private String imageUrl;
+    private String locationX;
+    private String locationY;
 
     private static final long serialVersionUID = 1L;
 
@@ -45,7 +47,23 @@ public class CycEssay implements Serializable {
         this.imageUrl = imageUrl == null ? null : imageUrl.trim();
     }
 
-    @Override
+    public String getLocationX() {
+		return locationX;
+	}
+
+	public void setLocationX(String locationX) {
+		this.locationX = locationX;
+	}
+
+	public String getLocationY() {
+		return locationY;
+	}
+
+	public void setLocationY(String locationY) {
+		this.locationY = locationY;
+	}
+
+	@Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
