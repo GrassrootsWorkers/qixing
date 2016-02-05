@@ -4,7 +4,8 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{FA3FE264-B7C5-4DFD-ABB9-B453ACA017D0}" Name="PhysicalDataModel_1" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="qixing.pdm"/>
+		<Model Expanded="Yes" ID="{FA3FE264-B7C5-4DFD-ABB9-B453ACA017D0}" Loaded="No" Name="PhysicalDataModel_1" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="qixing.pdm"/>
+		<Model Expanded="Yes" ID="{FA3FE264-B7C5-4DFD-ABB9-B453ACA017D0}" Name="PhysicalDataModel_1" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="qixing.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
