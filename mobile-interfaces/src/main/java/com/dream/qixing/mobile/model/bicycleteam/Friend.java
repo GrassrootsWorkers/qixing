@@ -3,12 +3,17 @@ package com.dream.qixing.mobile.model.bicycleteam;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.dream.qixing.mobile.mapping.ApiField;
+
 public class Friend implements Serializable {
     private Integer id;
 
     private Integer cycId;
 
+    @ApiField("user_id")
     private Integer userId;
+    @ApiField("nick_name")
+    private String nickName;
 
     private Date addTime;
 
@@ -66,7 +71,15 @@ public class Friend implements Serializable {
         this.status = status;
     }
 
-    @Override
+    public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	@Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());

@@ -2,6 +2,7 @@ package com.dream.qixing.mobile.model.bicycleteam;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class ActivityApply implements Serializable {
     private Integer id;
@@ -18,10 +19,13 @@ public class ActivityApply implements Serializable {
     private Date applyTime;
 
     private String ifOnTime;
+    
+ 
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
+    
+	public Integer getId() {
         return id;
     }
 

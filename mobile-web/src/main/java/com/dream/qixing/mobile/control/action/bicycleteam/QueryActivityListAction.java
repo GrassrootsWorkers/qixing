@@ -14,9 +14,7 @@ public class QueryActivityListAction extends BaseAction {
 	
 	private String userId;
 	private String queryType;
-	@ApiListField("teams")
-	@ApiField("team")
-	private List<BicycleTeam> teams;
+	
 	
 	public String execute(){
 		

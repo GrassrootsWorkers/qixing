@@ -2,6 +2,7 @@ package com.dream.qixing.mobile.model.bicycleteam;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Activity implements Serializable {
     private Integer activityId;
@@ -40,7 +41,9 @@ public class Activity implements Serializable {
      * 0：活动刚创建，1：活动通过审核开始报名，2活动结束报名，3活动进行中 4 活动结束
      */
     private Integer activityStatus;
-
+    
+    private List<ActivityApply> applys;
+    
     private static final long serialVersionUID = 1L;
 
     public Integer getActivityId() {
@@ -178,6 +181,15 @@ public class Activity implements Serializable {
     public void setActivityStatus(Integer activityStatus) {
         this.activityStatus = activityStatus;
     }
+
+    public List<ActivityApply> getApplys() {
+		return applys;
+	}
+
+	public void setApplys(List<ActivityApply> applys) {
+		this.applys = applys;
+	}
+
 
     @Override
     public String toString() {

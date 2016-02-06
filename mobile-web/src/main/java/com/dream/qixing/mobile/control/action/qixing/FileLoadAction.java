@@ -34,10 +34,12 @@ public class FileLoadAction extends BaseAction {
 			doPost(this.getRequest(),this.getResponse());
 			this.setIssuccessful(true);
 			this.setStatuscode(200);
-		} catch (ServletException | IOException e) {
+		} catch (ServletException e) {
 			this.setIssuccessful(false);
 			this.setStatuscode(500);
 			this.setDescription(e.getMessage());
+		} catch(Exception e){
+
 		}
 		return "";
 	}

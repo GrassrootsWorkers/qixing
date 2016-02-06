@@ -8,16 +8,19 @@ import com.dream.qixing.mobile.mapping.ApiField;
 import com.dream.qixing.mobile.mapping.ApiListField;
 
 public class BicycleTeam implements Serializable {
+	
+	@ApiField("bicycle_id")
     private Integer cycId;
-
+	@ApiField("bicycle_logo")
     private String cycTeamLogo;
-
+	@ApiField("team_name")
     private String clubName;
 
     private String clubAddress;
 
     private String clubDesc;
 
+    @ApiField("creater")
     private String createName;
 
     private String mobile;
@@ -26,12 +29,20 @@ public class BicycleTeam implements Serializable {
 
     private String allowUnknow;
 
+    //车队上限人数
     private Integer personLimit;
-
+    //车队报名的人数
+    @ApiField("amount")
+    private Integer amount;
+    @ApiField("create_time")
     private Date createTime;
     //车队举办的活动数
 
     private Integer activityAmount;
+    
+    private Integer provinceId;
+    
+    private Integer cityId;
     
     @ApiListField("friends")
     @ApiField("friend")
@@ -43,7 +54,7 @@ public class BicycleTeam implements Serializable {
     /**
      * 1-10分 根据举办的活动计算
      */
-    private Integer liveness;
+    private String liveness;
 
     private static final long serialVersionUID = 1L;
 
@@ -143,15 +154,56 @@ public class BicycleTeam implements Serializable {
         this.activityAmount = activityAmount;
     }
 
-    public Integer getLiveness() {
+    public String getLiveness() {
         return liveness;
     }
 
-    public void setLiveness(Integer liveness) {
+    public void setLiveness(String liveness) {
         this.liveness = liveness;
     }
+    
 
-    @Override
+    public Integer getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
+
+	public Integer getProvinceId() {
+		return provinceId;
+	}
+
+	public void setProvinceId(Integer provinceId) {
+		this.provinceId = provinceId;
+	}
+
+	public Integer getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(Integer cityId) {
+		this.cityId = cityId;
+	}
+
+	public List<Friend> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(List<Friend> friends) {
+		this.friends = friends;
+	}
+
+	public List<Activity> getActivitys() {
+		return activitys;
+	}
+
+	public void setActivitys(List<Activity> activitys) {
+		this.activitys = activitys;
+	}
+
+	@Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
