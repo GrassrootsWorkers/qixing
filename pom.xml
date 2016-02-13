@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.dream.qixing.mobile</groupId>
-	<artifactId>dream-mobile</artifactId>
+	<groupId>com.dream.qixing</groupId>
+	<artifactId>dream-qixing</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>mobile-interfaces</module>
-		<module>mobile-service</module>
-		<module>mobile-web</module>
-		<module>mobile-commons</module>
+		<module>qixing-interfaces</module>
+		<module>qixing-service</module>
+		<module>qixing-web</module>
+		<module>qixing-commons</module>
 	</modules>
 	<properties>
 
