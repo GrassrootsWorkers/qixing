@@ -6,12 +6,13 @@ import java.util.Date;
 import com.dream.qixing.mobile.mapping.ApiField;
 
 public class Friend implements Serializable {
-    private Integer id;
-
-    private Integer cycId;
-
     @ApiField("user_id")
+    private Integer id;
+    private Integer cycId;
+    private Integer activityId;
+
     private Integer userId;
+
     @ApiField("nick_name")
     private String nickName;
 

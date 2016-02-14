@@ -30,6 +30,7 @@ public class BicycleTeam implements Serializable {
     private String allowUnknow;
 
     //车队上限人数
+    @ApiField("person_limit")
     private Integer personLimit;
     //车队报名的人数
     @ApiField("amount")

@@ -23,13 +23,13 @@ public class RoadBook implements Serializable {
 
     private Integer status;
     
-    @ApiField("begin_X")
+    @ApiField("begin_lon")
     private String beginX;
-    @ApiField("begin_Y")
+    @ApiField("begin_lat")
     private String beginY;
-    @ApiField("end_X")
+    @ApiField("end_lon")
     private String endX;
-    @ApiField("end_Y")
+    @ApiField("end_lat")
     private String endY;
 
     private Date createTime;

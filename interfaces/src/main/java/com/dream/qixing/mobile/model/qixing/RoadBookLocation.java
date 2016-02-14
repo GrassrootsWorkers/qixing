@@ -18,12 +18,12 @@ public class RoadBookLocation implements Serializable {
 
     private Integer roadBookId;
     
-    @ApiField("location_x")
-    private Double locationX;
-    @ApiField("location_y")
-    private Double locationY;
-    @ApiField("location_z")
-    private Double locationZ;
+    @ApiField("location_lon")
+    private String locationX;
+    @ApiField("location_lot")
+    private String locationY;
+    @ApiField("location_alt")
+    private String locationZ;
 
     private static final long serialVersionUID = 1L;
 
@@ -67,32 +67,31 @@ public class RoadBookLocation implements Serializable {
         this.roadBookId = roadBookId;
     }
 
-    
-    public Double getLocationX() {
-		return locationX;
-	}
+    public String getLocationX() {
+        return locationX;
+    }
 
-	public void setLocationX(Double locationX) {
-		this.locationX = locationX;
-	}
+    public void setLocationX(String locationX) {
+        this.locationX = locationX;
+    }
 
-	public Double getLocationY() {
-		return locationY;
-	}
+    public String getLocationY() {
+        return locationY;
+    }
 
-	public void setLocationY(Double locationY) {
-		this.locationY = locationY;
-	}
+    public void setLocationY(String locationY) {
+        this.locationY = locationY;
+    }
 
-	public Double getLocationZ() {
-		return locationZ;
-	}
+    public String getLocationZ() {
+        return locationZ;
+    }
 
-	public void setLocationZ(Double locationZ) {
-		this.locationZ = locationZ;
-	}
+    public void setLocationZ(String locationZ) {
+        this.locationZ = locationZ;
+    }
 
-	@Override
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());

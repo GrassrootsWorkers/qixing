@@ -1,26 +1,34 @@
 package com.dream.qixing.mobile.model.bicycleteam;
 
+import com.dream.qixing.mobile.mapping.ApiField;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 public class Activity implements Serializable {
+    @ApiField("activity_id")
     private Integer activityId;
-
+    @ApiField("desc")
     private String activityDesc;
-
+    @ApiField("begin_time")
     private Date beginTime;
-
+    @ApiField("end_time")
     private Date endTime;
-
+    @ApiField("apply_end_time")
     private Date applyEndTime;
-
+    @ApiField("road_book_id")
     private Integer roadBookId;
-
+    @ApiField("location")
+    private String activityAddress;
+    @ApiField("activity_name")
+    private String activityName;
     private String roles;
 
+    @ApiField("people_limit")
     private Integer peopleNum;
-
+    @ApiField("applied_amount")
+    private Integer amount;
     private String ifMass;
 
     private String allowUnknow;
@@ -43,7 +51,31 @@ public class Activity implements Serializable {
     private Integer activityStatus;
     
     private List<ActivityApply> applys;
-    
+
+    public String getActivityAddress() {
+        return activityAddress;
+    }
+
+    public void setActivityAddress(String activityAddress) {
+        this.activityAddress = activityAddress;
+    }
+
+    public String getActivityName() {
+        return activityName;
+    }
+
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
     private static final long serialVersionUID = 1L;
 
     public Integer getActivityId() {

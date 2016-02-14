@@ -16,9 +16,9 @@ public class TeamTrace {
 	private String nickName;
 	@ApiField("speed")
 	private String speed;
-	@ApiField("x")
+	@ApiField("lon")
 	private String locationX;
-	@ApiField("y")
+	@ApiField("lat")
 	private String locationY;
 	public String getRoleName() {
 		return roleName;
