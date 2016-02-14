@@ -6,10 +6,10 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>qixing-interfaces</module>
-		<module>qixing-service</module>
-		<module>qixing-web</module>
-		<module>qixing-commons</module>
+		<module>interfaces</module>
+		<module>service</module>
+		<module>web</module>
+		<module>commons</module>
 	</modules>
 	<properties>
 
