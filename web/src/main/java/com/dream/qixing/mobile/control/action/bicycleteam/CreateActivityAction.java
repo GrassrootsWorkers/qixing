@@ -16,7 +16,8 @@ public class CreateActivityAction extends BaseAction {
 	private Integer activityId;
 
 	private String activityDesc;
-
+	private String activityAddress;
+	private String activityName;
 	private Date beginTime;
 
 	private Date endTime;
@@ -55,4 +56,135 @@ public class CreateActivityAction extends BaseAction {
 		return null;
 	}
 
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
+	}
+
+	public Integer getBicycleId() {
+		return bicycleId;
+	}
+
+	public void setBicycleId(Integer bicycleId) {
+		this.bicycleId = bicycleId;
+	}
+
+	public Integer getActivityId() {
+		return activityId;
+	}
+
+	public void setActivityId(Integer activityId) {
+		this.activityId = activityId;
+	}
+
+	public String getActivityDesc() {
+		return activityDesc;
+	}
+
+	public void setActivityDesc(String activityDesc) {
+		this.activityDesc = activityDesc;
+	}
+
+	public String getActivityAddress() {
+		return activityAddress;
+	}
+
+	public void setActivityAddress(String activityAddress) {
+		this.activityAddress = activityAddress;
+	}
+
+	public String getActivityName() {
+		return activityName;
+	}
+
+	public void setActivityName(String activityName) {
+		this.activityName = activityName;
+	}
+
+	public Date getBeginTime() {
+		return beginTime;
+	}
+
+	public void setBeginTime(Date beginTime) {
+		this.beginTime = beginTime;
+	}
+
+	public Date getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
+
+	public Date getApplyEndTime() {
+		return applyEndTime;
+	}
+
+	public void setApplyEndTime(Date applyEndTime) {
+		this.applyEndTime = applyEndTime;
+	}
+
+	public Integer getRoadBookId() {
+		return roadBookId;
+	}
+
+	public void setRoadBookId(Integer roadBookId) {
+		this.roadBookId = roadBookId;
+	}
+
+	public String getRoleNumber() {
+		return roleNumber;
+	}
+
+	public void setRoleNumber(String roleNumber) {
+		this.roleNumber = roleNumber;
+	}
+
+	public Integer getPeopleNumber() {
+		return peopleNumber;
+	}
+
+	public void setPeopleNumber(Integer peopleNumber) {
+		this.peopleNumber = peopleNumber;
+	}
+
+	public String getIfMass() {
+		return ifMass;
+	}
+
+	public void setIfMass(String ifMass) {
+		this.ifMass = ifMass;
+	}
+
+	public String getAllowUnknow() {
+		return allowUnknow;
+	}
+
+	public void setAllowUnknow(String allowUnknow) {
+		this.allowUnknow = allowUnknow;
+	}
+
+	public Double getApplyFee() {
+		return applyFee;
+	}
+
+	public void setApplyFee(Double applyFee) {
+		this.applyFee = applyFee;
+	}
+
+	public String getMeetAddress() {
+		return meetAddress;
+	}
+
+	public void setMeetAddress(String meetAddress) {
+		this.meetAddress = meetAddress;
+	}
+
+	public String getImages() {
+		return images;
+	}
+
+	public void setImages(String images) {
+		this.images = images;
+	}
 }

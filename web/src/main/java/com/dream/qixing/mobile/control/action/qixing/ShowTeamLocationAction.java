@@ -15,8 +15,8 @@ public class ShowTeamLocationAction extends BaseAction{
 	private Integer activityId;
 	private String userId;
 	
-	private String locationX;
-	private String locationY;
+	private String locationLon;
+	private String locationLat;
 	private String speed;
 	@ApiListField("traces")
 	@ApiField("trace")
@@ -83,20 +83,28 @@ public class ShowTeamLocationAction extends BaseAction{
 		this.userId = userId;
 	}
 
-	public String getLocationX() {
-		return locationX;
+	public String getLocationLon() {
+		return locationLon;
 	}
 
-	public void setLocationX(String locationX) {
-		this.locationX = locationX;
+	public void setLocationLon(String locationLon) {
+		this.locationLon = locationLon;
 	}
 
-	public String getLocationY() {
-		return locationY;
+	public String getLocationLat() {
+		return locationLat;
 	}
 
-	public void setLocationY(String locationY) {
-		this.locationY = locationY;
+	public void setLocationLat(String locationLat) {
+		this.locationLat = locationLat;
+	}
+
+	public String getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(String speed) {
+		this.speed = speed;
 	}
 
 	public List<TeamTrace> getTraces() {

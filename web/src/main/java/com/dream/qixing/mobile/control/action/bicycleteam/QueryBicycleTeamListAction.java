@@ -21,8 +21,8 @@ public class QueryBicycleTeamListAction extends BaseAction {
 	private Integer provinceId;
 	private Integer cityId;
 	
-	@ApiListField("bicycle_teams")
-	@ApiField("team")
+	@ApiListField("bicycle_team")
+	@ApiField("teams")
 	private List<BicycleTeam> bicycleTeams;
 	public String execute(){
 		bicycleTeams = new ArrayList<BicycleTeam>();
@@ -30,12 +30,20 @@ public class QueryBicycleTeamListAction extends BaseAction {
 		team.setCycId(1000);
 		team.setCycTeamLogo("http://qixing.com/imgage.jpg");
 		team.setAmount(100);
+		team.setPersonLimit(500);
 		team.setClubName("夕阳红");
 		team.setLiveness("高");
 		team.setCreateTime(new Date());
 		bicycleTeams.add(team);
-		team.setCycId(1001);
-		bicycleTeams.add(team);
+		BicycleTeam team1 = new BicycleTeam();
+		team1.setCycId(1000);
+		team1.setCycTeamLogo("http://qixing.com/imgage.jpg");
+		team.setPersonLimit(500);
+		team1.setAmount(100);
+		team1.setClubName("夕阳红");
+		team1.setLiveness("高");
+		team1.setCreateTime(new Date());
+		bicycleTeams.add(team1);
 		return "";
 	}
 	

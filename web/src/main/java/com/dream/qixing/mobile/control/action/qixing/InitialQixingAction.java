@@ -35,8 +35,8 @@ public class InitialQixingAction extends BaseAction {
 		RoadBookLocation location = new RoadBookLocation();
 		location.setRoadBookId(1);
 		//location.setXyz("123.67");
-		location.setLocationX(1234.666666);
-		location.setLocationY(1234.666666);
+		location.setLocationX("1234.666666");
+		location.setLocationY("1234.666666");
 		//location.setLocationX(1234.666666);
 		location.setXyzName("北京西站");
 		locations.add(location);
@@ -44,8 +44,8 @@ public class InitialQixingAction extends BaseAction {
 		location1.setRoadBookId(1);
 		//location1.setXyz("233.66");
 		location1.setXyzName("北京西站");
-		location1.setLocationX(1234.666666);
-		location1.setLocationY(1234.666666);
+		location1.setLocationX("1234.666666");
+		location1.setLocationY("1234.666666");
 		locations.add(location1);
 		this.setIssuccessful(true);
 		this.setStatuscode(200);
