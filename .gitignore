@@ -1,0 +1,7 @@
+*.class
+*.apk
+target/
+.settings/
+*.project
+*.classpath
+*.iml
