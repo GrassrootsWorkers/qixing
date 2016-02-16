@@ -21,9 +21,9 @@
    		http://www.springframework.org/schema/task/spring-task-4.0.xsd
 		http://code.alibabatech.com/schema/dubbo        
 		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-	<dubbo:registry id="spider-front" protocol="zookeeper" address="192.168.1.204:2181" />
+	<!-- <dubbo:registry id="spider-front" protocol="zookeeper" address="192.168.1.204:2181" />
 	 <dubbo:application name="spider-mobile-consumer" />
-	<!-- <dubbo:reference interface="com.dream.qixing.service.user.UserService" id="userService" " /> -->
+	<dubbo:reference interface="com.dream.qixing.service.user.UserService" id="userService" " />
 	<dubbo:reference interface="com.dream.qixing.front.interfaces.items.ItemsService" id="itemsService" />
-	<dubbo:reference interface="com.dream.qixing.front.interfaces。user.IBgUserService" id="userService" />
+	<dubbo:reference interface="com.dream.qixing.front.interfaces。user.IBgUserService" id="userService" /> -->
 </beans>

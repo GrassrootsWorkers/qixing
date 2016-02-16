@@ -10,7 +10,7 @@
 	<import resource="classpath*:config/*.xml"/>
     <import resource="classpath*:spring-datasource.xml"/>
 	<import resource="classpath*:spring-redis.xml"/>
-	<import resource="classpath*:dubbo-consumer.xml"/>
+	<!-- <import resource="classpath*:dubbo-consumer.xml"/> -->
 	<import resource="classpath*:spring/**/spring-*.xml"/>
 	
 	<!-- define the SqlSessionFactory -->
