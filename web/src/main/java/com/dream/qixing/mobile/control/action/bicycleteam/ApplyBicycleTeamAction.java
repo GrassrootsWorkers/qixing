@@ -10,10 +10,10 @@ public class ApplyBicycleTeamAction extends BaseAction {
 	private int code;
 	
 	public String execute(){
-		this.setIssuccessful(true);
-		this.setStatuscode(200);
+		this.setIsSuccessful(true);
+		this.setStatusCode(200);
 		this.setDescription("加入车队成功");
-		this.setUserId("1000");
+		this.setUserId(1000);
 		return "";
 	}
 

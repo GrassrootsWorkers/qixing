@@ -12,14 +12,14 @@ import com.dream.qixing.mobile.mapping.ApiField;
 import com.dream.qixing.mobile.mapping.ApiListField;
 import com.dream.qixing.mobile.model.vender.Vender;
 
-@ApiAction(value = "vender")
+@ApiAction(value = "vendor")
 public class VenderAction  extends BaseAction{
 	
 	@Resource
 	private IVenderService venderService;
 	private Vender vender = new Vender();
-	@ApiListField("venders")
-	@ApiField("vender")
+	@ApiListField("vendors")
+	@ApiField("vendor")
 	private List<Vender> venders;
 	public String execute() throws Exception{
 		venders = new ArrayList<Vender>();
@@ -27,11 +27,11 @@ public class VenderAction  extends BaseAction{
 		venders.add(v);
 		venders.add(v);
 		if(v != null){
-			this.setIssuccessful(true);
-			this.setStatuscode(200);
+			this.setIsSuccessful(true);
+			this.setStatusCode(200);
 		}else {
-			this.setIssuccessful(false);
-			this.setStatuscode(401);
+			this.setIsSuccessful(false);
+			this.setStatusCode(401);
 		}
 		
 		return null;

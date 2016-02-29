@@ -9,14 +9,14 @@ public class SaveEssayAction extends BaseAction {
 	private String reportId;
 	private String desc;
 	private String imageStrs;
-	private String userId;
 	private String locationLon;
 	private String locationLat;
+	@Override
 	public String execute(){
 		//保存到数据库
-		this.setIssuccessful(true);
-		this.setStatuscode(200);
-		this.setUserId(userId);
+		this.setIsSuccessful(true);
+		this.setStatusCode(200);
+		this.setUserId(1000);
 		
 		return "";
 	}
@@ -44,15 +44,7 @@ public class SaveEssayAction extends BaseAction {
 		this.imageStrs = imageStrs;
 	}
 
-	@Override
-	public String getUserId() {
-		return userId;
-	}
 
-	@Override
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 
 	public String getLocationLon() {
 		return locationLon;

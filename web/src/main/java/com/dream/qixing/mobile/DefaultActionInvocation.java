@@ -55,8 +55,8 @@ public class DefaultActionInvocation implements ActionInvocation {
 		} catch (Exception e) {
 
 			action.setMsg(e.getMessage());
-			action.setIssuccessful(false);
-			action.setStatuscode(500);
+			action.setIsSuccessful(false);
+			action.setStatusCode(500);
 			//write();
 			mobileWrite();
 
@@ -66,10 +66,10 @@ public class DefaultActionInvocation implements ActionInvocation {
 	private void mobileWrite() {
 		StringBuffer sb = new StringBuffer();
 		sb.append("{\"");
-		sb.append("success\":\"").append(action.isIssuccessful()).append("\",");
-		sb.append("\"code\":\"").append(action.getStatuscode()).append("\",");
+		sb.append("success\":").append(action.isIsSuccessful()).append(",");
+		sb.append("\"code\":").append(action.getStatusCode()).append(",");
 		sb.append("\"desc\":\"").append(action.getDescription()).append("\",");
-		sb.append("\"userid\":\"").append(action.getUserId()).append("\",");
+		sb.append("\"userid\":").append(action.getUserId()).append(",");
 		sb.append("\"data\":").append(new JSONActionWrite(action.getFields()).mobileWrite(action, true));
 		sb.append("}");
 		response.setCharacterEncoding("UTF-8");

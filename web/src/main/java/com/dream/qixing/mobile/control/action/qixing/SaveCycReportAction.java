@@ -10,7 +10,7 @@ public class SaveCycReportAction extends BaseAction {
 
 	private Integer reportId;
 
-	private String userId;
+
 
 	private String qxName;
 
@@ -36,9 +36,9 @@ public class SaveCycReportAction extends BaseAction {
 	
 	public String execute() {
 		//保存到数据库
-		this.setIssuccessful(true);
-		this.setStatuscode(200);
-		this.setUserId(userId);
+		this.setIsSuccessful(true);
+		this.setStatusCode(200);
+		this.setUserId(1000);
 		return "";
 	}
 

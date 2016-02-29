@@ -33,8 +33,8 @@ public class CreateBicycleTeamAction extends BaseAction {
 		team.setPersonLimit(personLimit);
 		bicycleId = team.getCycId();
 		bicycleId = 1000;
-		this.setIssuccessful(true);
-		this.setStatuscode(200);
+		this.setIsSuccessful(true);
+		this.setStatusCode(200);
 		this.setDescription("success");
 		return "";
 	}

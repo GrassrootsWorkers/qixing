@@ -8,8 +8,6 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 
 public class RedisUtils {
 	private static JedisPool pool;
-	private static int defaultPort = 6379;
-	private static String defaultHost = DomainNameConfige.getStringProperty("front_redis_domain_name");
 	private static RedisUtils instance;
 
 	private RedisUtils() {
@@ -17,18 +15,10 @@ public class RedisUtils {
 
 	public static RedisUtils getInstance() {
 		if (instance == null) {
-			String host = ReloadableConfig.getStringProperty("host");
-			Integer port = ReloadableConfig.getIntProperty("port");
-			Integer timeOut = ReloadableConfig.getIntProperty("timeout");
-			Integer maxTotal = ReloadableConfig.getIntProperty("maxTotal");
-			if (port == null || timeOut == null || maxTotal == null) {
-				port = defaultPort;
-				timeOut = 1000;
-				maxTotal = 200;
-			}
-			if (host == null ) {
-				host = defaultHost;
-			}
+			String host = "master.redis.binggou.com";
+			Integer port = 6379;
+			Integer timeOut =200;
+			Integer maxTotal =200;
 			JedisPoolConfig config = new JedisPoolConfig();
 			config.setMaxTotal(maxTotal);
 			pool = new JedisPool(config, host, port, timeOut);
@@ -53,11 +43,14 @@ public class RedisUtils {
 	public static void main(String[] args) {
 		RedisUtils instance = RedisUtils.getInstance();
 		Jedis jedis = instance.getJedis();
-		if(jedis == null){
-			return ;
+		if(jedis == null) {
+			return;
 		}
-		// jedis.set("test-slave", "test-slave success");
-		System.out.println(jedis.get("test-slave"));
+//		for(int i =0 ;i<100;i++){
+//			jedis.hset("activity_id","user_00"+i,"(lat1,lon1)_"+i);
+//		}
+		System.out.println(jedis.hvals("activity_id"));
+		System.out.println(jedis.hkeys("activity_id"));
 		instance.returnResource(jedis);
 	}
 

@@ -43,8 +43,8 @@ public class QueryRoleInfoAction extends BaseAction {
 		role.setRoleId(300);
 		role.setRoleName("普通成员");
 		roles.add(role);
-		this.setIssuccessful(true);
-		this.setStatuscode(200);
+		this.setIsSuccessful(true);
+		this.setStatusCode(200);
 		this.setDescription("success");
 		return "";
 	}

@@ -21,19 +21,19 @@ public interface ApiActionInterfaces {
 	
 	public  String getType();
 	
-	public boolean isIssuccessful();
+	public boolean isIsSuccessful();
 	
-	public void setIssuccessful(boolean issuccessful) ;
+	public void setIsSuccessful(boolean isSuccessful) ;
 	
-	public Integer getStatuscode();
+	public Integer getStatusCode();
 	
-	public  void setStatuscode(Integer code );
+	public  void setStatusCode(Integer code );
 	
 	public String getDescription();
 	
 	public void setDescription(String description);
 	
-	public String getUserId();
+	public Integer getUserId();
 	
-	public void setUserId(String userId) ;
+	public void setUserId(Integer userId) ;
 }

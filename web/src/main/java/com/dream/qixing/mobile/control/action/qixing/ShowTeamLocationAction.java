@@ -13,8 +13,6 @@ import com.dream.qixing.mobile.model.qixing.TeamTrace;
 public class ShowTeamLocationAction extends BaseAction{
 	
 	private Integer activityId;
-	private String userId;
-	
 	private String locationLon;
 	private String locationLat;
 	private String speed;
@@ -27,7 +25,7 @@ public class ShowTeamLocationAction extends BaseAction{
 		String activityUserIds = getActivityUserByActivityId(1000);
 		String[] userIds = activityUserIds.split(",");
 		for(String u: userIds){
-			if(u.equals(userId)){
+			if(Integer.parseInt(u)==this.getUserId()){
 				//修改该用户中的值
 				
 			}else{
@@ -37,12 +35,12 @@ public class ShowTeamLocationAction extends BaseAction{
 		}
 		
 		if(traces.size() >0){
-			this.setIssuccessful(true);
-			this.setStatuscode(200);
-			this.setUserId(userId);
+			this.setIsSuccessful(true);
+			this.setStatusCode(200);
+			this.setUserId(this.getUserId());
 		}else{
-			this.setIssuccessful(false);
-			this.setStatuscode(500);
+			this.setIsSuccessful(false);
+			this.setStatusCode(500);
 			this.setDescription("系统错误");
 		}
 		return "";
@@ -73,14 +71,6 @@ public class ShowTeamLocationAction extends BaseAction{
 
 	public void setActivityId(Integer activityId) {
 		this.activityId = activityId;
-	}
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
 	}
 
 	public String getLocationLon() {

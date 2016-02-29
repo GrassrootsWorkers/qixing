@@ -47,9 +47,9 @@ public class InitialQixingAction extends BaseAction {
 		location1.setLocationX("1234.666666");
 		location1.setLocationY("1234.666666");
 		locations.add(location1);
-		this.setIssuccessful(true);
-		this.setStatuscode(200);
-		this.setUserId("1000000");
+		this.setIsSuccessful(true);
+		this.setStatusCode(200);
+		this.setUserId(10000);
 		activityId =10000;
 		
 		roadBook.setLocations(locations);

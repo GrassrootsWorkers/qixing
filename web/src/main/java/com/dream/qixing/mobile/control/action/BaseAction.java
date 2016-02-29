@@ -41,16 +41,16 @@ public abstract class BaseAction extends ActionSupport implements ApiActionInter
 
 	private String fields;
 
-	private String venderId;
+	private String vendorId;
 
 	
-	private boolean issuccessful;// :true,
+	private boolean isSuccessful;// :true,
 	
-	private Integer statuscode;// ":200,
+	private Integer statusCode;// ":200,
 
 	private String description;//
 
-	private String userId;
+	private Integer userId;
 	/**
 	 * 请求的来源 mobile --手机客户端 open--开放平台
 	 */
@@ -77,14 +77,6 @@ public abstract class BaseAction extends ActionSupport implements ApiActionInter
 
 	public void setFormat(String format) {
 		this.format = format;
-	}
-
-	public String getVenderId() {
-		return venderId;
-	}
-
-	public void setVenderId(String venderId) {
-		this.venderId = venderId;
 	}
 
 	/**
@@ -152,7 +144,7 @@ public abstract class BaseAction extends ActionSupport implements ApiActionInter
 
 	/**
 	 * 获得用户的真实IP
-	 * 
+	 *
 	 * @return 用户的真实IP
 	 */
 	public String getRealIP() {
@@ -242,6 +234,16 @@ public abstract class BaseAction extends ActionSupport implements ApiActionInter
 		return type;
 	}
 
+	@Override
+	public boolean isIsSuccessful() {
+		return isSuccessful;
+	}
+
+	@Override
+	public void setIsSuccessful(boolean isSuccessful) {
+		this.isSuccessful = isSuccessful;
+	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
@@ -254,36 +256,33 @@ public abstract class BaseAction extends ActionSupport implements ApiActionInter
 		this.os = os;
 	}
 
-	public boolean isIssuccessful() {
-		return issuccessful;
+	@Override
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setIssuccessful(boolean issuccessful) {
-		this.issuccessful = issuccessful;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
-	public Integer getStatuscode() {
-		return statuscode;
+	@Override
+	public Integer getStatusCode() {
+		return statusCode;
 	}
 
-	public void setStatuscode(Integer statuscode) {
-		this.statuscode = statuscode;
+	@Override
+	public void setStatusCode(Integer statusCode) {
+		this.statusCode = statusCode;
 	}
 
+	@Override
 	public String getDescription() {
 		return description;
 	}
 
+	@Override
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
 	}
 
 	public String getToken() {
@@ -302,4 +301,11 @@ public abstract class BaseAction extends ActionSupport implements ApiActionInter
 		this.security = security;
 	}
 
+	public String getVendorId() {
+		return vendorId;
+	}
+
+	public void setVendorId(String vendorId) {
+		this.vendorId = vendorId;
+	}
 }

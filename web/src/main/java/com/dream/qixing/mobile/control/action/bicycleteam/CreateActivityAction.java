@@ -42,10 +42,10 @@ public class CreateActivityAction extends BaseAction {
 	public String execute() {
 		this.activityId = 1000;
 		this.bicycleId = 1000;
-		this.setIssuccessful(true);
-		this.setStatuscode(200);
+		this.setIsSuccessful(true);
+		this.setStatusCode(200);
 		this.setDescription("创建活动成功");
-		this.setUserId("1000");
+		this.setUserId(1000);
 
 		return "";
 	}
