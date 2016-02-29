@@ -102,8 +102,8 @@ public class FileUploadUtil {
 	    }
 	    public static void main(String[] args) {
 			FileUploadUtil util = new FileUploadUtil();
-			File file = new File("D:\\section3.jpg");
-			System.out.println(util.uploadFile(file, "http://localhost:8080/ApiControl?method=file.download&reportId=1000"));
+			File file = new File("D:\\section3");
+			System.out.println(util.uploadFile(file, "http://localhost:8080/ApiControl?method=picture.upload"));
 			
 		}
 	}

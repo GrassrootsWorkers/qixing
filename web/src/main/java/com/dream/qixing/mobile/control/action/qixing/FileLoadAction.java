@@ -77,7 +77,7 @@ public class FileLoadAction extends BaseAction {
 				String fileName = fi.getName();
 				
 				if (fileName != null) {
-					fileName= c.get(Calendar.SECOND)+fileName;;
+					fileName= c.get(Calendar.SECOND)+fileName;
 					imgUrl.add("http://p1.dream.com/"+year+"/"+month+"/"+day+"/"+fileName);
 					File fullFile = new File(new String(fileName.getBytes(), "utf-8")); // 解决文件名乱码问题
 					File savedFile = new File(filePath, fullFile.getName());
