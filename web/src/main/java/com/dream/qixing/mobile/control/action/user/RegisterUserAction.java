@@ -3,6 +3,9 @@ package com.dream.qixing.mobile.control.action.user;
 import com.dream.qixing.mobile.config.ApiAction;
 import com.dream.qixing.mobile.control.action.BaseAction;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by Administrator on 2016/2/28 0028.
  */
@@ -15,11 +18,22 @@ public class RegisterUserAction extends BaseAction {
     private String validateCode;
     @Override
     public String execute(){
+        if(!validateMobile(mobile)){
+            this.setIsSuccessful(false);
+            this.setStatusCode(500);
+            this.setDescription("手机号格式不正确！");
+            return"";
+        }
         this.setUserId(10000);
         this.setIsSuccessful(true);
         this.setStatusCode(200);
         this.setDescription("注册成功！");
         return "";
+    }
+    protected   boolean validateMobile(String mobile){
+        Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(17[0-9])|(18[0,5-9]))\\d{8}$");
+        Matcher m = p.matcher(mobile);
+        return m.matches();
     }
     @Override
     public String getResponseName() {
