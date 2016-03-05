@@ -10,6 +10,9 @@ import com.dream.qixing.mobile.constants.Constants;
 import com.dream.qixing.mobile.mapping.ApiField;
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * 所有ACTION的基类
  *
@@ -66,7 +69,11 @@ public abstract class BaseAction extends ActionSupport implements ApiActionInter
 
 	@ApiField("msg")
 	private String msg;
-
+	protected   boolean validateMobile(String mobile){
+		Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(17[0-9])|(18[0,5-9]))\\d{8}$");
+		Matcher m = p.matcher(mobile);
+		return m.matches();
+	}
 	public String getFormat() {
 		if (format == null || (!Constants.FORMAT_JSON.equals(format) && !Constants.FORMAT_XML.equals(format))) {
 			format = Constants.FORMAT_JSON;

@@ -63,5 +63,36 @@ public class InitialQixingAction extends BaseAction {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+	public int getCycReportId() {
+		return cycReportId;
+	}
+
+	public void setCycReportId(int cycReportId) {
+		this.cycReportId = cycReportId;
+	}
+
+	public String getIfTeam() {
+		return ifTeam;
+	}
+
+	public void setIfTeam(String ifTeam) {
+		this.ifTeam = ifTeam;
+	}
+
+	public Integer getActivityId() {
+		return activityId;
+	}
+
+	public void setActivityId(Integer activityId) {
+		this.activityId = activityId;
+	}
+
+	public RoadBook getRoadBook() {
+		return roadBook;
+	}
+
+	public void setRoadBook(RoadBook roadBook) {
+		this.roadBook = roadBook;
+	}
 }

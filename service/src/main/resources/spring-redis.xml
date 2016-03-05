@@ -6,7 +6,7 @@
 		<constructor-arg index="0">
 			<ref bean="jedisPoolConfig"/>
 		</constructor-arg>
-		<constructor-arg index="1" value="front.redis.master.binggou.com" />
+		<constructor-arg index="1" value="master.redis.binggou.com" />
 		<constructor-arg index="2" value="6379" type="int"/>
 		 <constructor-arg index="3" value="1000000" type="int"/>
 	</bean>

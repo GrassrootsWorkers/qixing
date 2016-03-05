@@ -1,34 +1,38 @@
 package com.dream.qixing.mobile.model.user;
 
+import com.dream.qixing.mobile.mapping.ApiField;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
+
+    @ApiField("user_id")
     private Integer userId;
-
+    @ApiField("nick_name")
     private String nickName;
-
+    @ApiField("sex")
     private String sex;
 
     /**
      * 骑过路线的难度最高等级 --根据路线进行测评，定期更新该字段，为推荐好友做准备
      */
     private Integer level;
-
+    @ApiField("location")
     private String location;
-
+    @ApiField("height")
     private String height;
-
+    @ApiField("weight")
     private String weight;
-
+    @ApiField("cyclingAge")
     private Integer bicycleAge;
-
+    @ApiField("name")
     private String realName;
 
-    private String weixinNum;
+    private String weiXinNum;
 
     private String role;
-
+    @ApiField("mobile")
     private String mobile;
 
     private String password;
@@ -127,12 +131,12 @@ public class User implements Serializable {
         this.realName = realName == null ? null : realName.trim();
     }
 
-    public String getWeixinNum() {
-        return weixinNum;
+    public String getWeiXinNum() {
+        return weiXinNum;
     }
 
-    public void setWeixinNum(String weixinNum) {
-        this.weixinNum = weixinNum == null ? null : weixinNum.trim();
+    public void setWeiXinNum(String weiXinNum) {
+        this.weiXinNum = weiXinNum;
     }
 
     public String getRole() {
@@ -230,7 +234,7 @@ public class User implements Serializable {
         sb.append(", weight=").append(weight);
         sb.append(", bicycleAge=").append(bicycleAge);
         sb.append(", realName=").append(realName);
-        sb.append(", weixinNum=").append(weixinNum);
+        sb.append(", weiXinNum=").append(weiXinNum);
         sb.append(", role=").append(role);
         sb.append(", mobile=").append(mobile);
         sb.append(", password=").append(password);

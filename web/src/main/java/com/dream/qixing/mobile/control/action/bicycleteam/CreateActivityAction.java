@@ -26,15 +26,14 @@ public class CreateActivityAction extends BaseAction {
 
 	private Integer roadBookId;
 
-	private String roleNumber;
 
 	private Integer peopleNumber;
-	//是否群发队友
-	private String ifMass;
 
-	private String allowUnknow;
+
+	private String allowUnknown;
 
 	private Double applyFee;
+
 	private String meetAddress;
 	//活动上传的图片串
 	private String images;
@@ -54,18 +53,6 @@ public class CreateActivityAction extends BaseAction {
 	public String getResponseName() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	public static long getSerialVersionUID() {
-		return serialVersionUID;
-	}
-
-	public Integer getBicycleId() {
-		return bicycleId;
-	}
-
-	public void setBicycleId(Integer bicycleId) {
-		this.bicycleId = bicycleId;
 	}
 
 	public Integer getActivityId() {
@@ -132,14 +119,6 @@ public class CreateActivityAction extends BaseAction {
 		this.roadBookId = roadBookId;
 	}
 
-	public String getRoleNumber() {
-		return roleNumber;
-	}
-
-	public void setRoleNumber(String roleNumber) {
-		this.roleNumber = roleNumber;
-	}
-
 	public Integer getPeopleNumber() {
 		return peopleNumber;
 	}
@@ -148,20 +127,12 @@ public class CreateActivityAction extends BaseAction {
 		this.peopleNumber = peopleNumber;
 	}
 
-	public String getIfMass() {
-		return ifMass;
+	public String getAllowUnknown() {
+		return allowUnknown;
 	}
 
-	public void setIfMass(String ifMass) {
-		this.ifMass = ifMass;
-	}
-
-	public String getAllowUnknow() {
-		return allowUnknow;
-	}
-
-	public void setAllowUnknow(String allowUnknow) {
-		this.allowUnknow = allowUnknow;
+	public void setAllowUnknown(String allowUnknown) {
+		this.allowUnknown = allowUnknown;
 	}
 
 	public Double getApplyFee() {
@@ -186,5 +157,13 @@ public class CreateActivityAction extends BaseAction {
 
 	public void setImages(String images) {
 		this.images = images;
+	}
+
+	public Integer getBicycleId() {
+		return bicycleId;
+	}
+
+	public void setBicycleId(Integer bicycleId) {
+		this.bicycleId = bicycleId;
 	}
 }

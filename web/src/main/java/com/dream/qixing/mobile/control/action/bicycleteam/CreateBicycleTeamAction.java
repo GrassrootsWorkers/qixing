@@ -14,15 +14,13 @@ public class CreateBicycleTeamAction extends BaseAction {
 
 	private String clubAddress;
 
-	private String clubDesc;
+	private String description;
 
 	private String createName;
 
 	private String mobile;
 
-	private String imageUrl;
-
-	private String allowUnknowApply;
+	private String allowStrangerApply;
 
 	private Integer personLimit;
 	@ApiField("bicycle_id")
@@ -45,4 +43,77 @@ public class CreateBicycleTeamAction extends BaseAction {
 		return null;
 	}
 
+	public String getBicycleTeamLogo() {
+		return bicycleTeamLogo;
+	}
+
+	public void setBicycleTeamLogo(String bicycleTeamLogo) {
+		this.bicycleTeamLogo = bicycleTeamLogo;
+	}
+
+	public String getBicycleTeamName() {
+		return bicycleTeamName;
+	}
+
+	public void setBicycleTeamName(String bicycleTeamName) {
+		this.bicycleTeamName = bicycleTeamName;
+	}
+
+	public String getClubAddress() {
+		return clubAddress;
+	}
+
+	public void setClubAddress(String clubAddress) {
+		this.clubAddress = clubAddress;
+	}
+
+	@Override
+	public String getDescription() {
+		return description;
+	}
+
+	@Override
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getCreateName() {
+		return createName;
+	}
+
+	public void setCreateName(String createName) {
+		this.createName = createName;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getAllowStrangerApply() {
+		return allowStrangerApply;
+	}
+
+	public void setAllowStrangerApply(String allowStrangerApply) {
+		this.allowStrangerApply = allowStrangerApply;
+	}
+
+	public Integer getPersonLimit() {
+		return personLimit;
+	}
+
+	public void setPersonLimit(Integer personLimit) {
+		this.personLimit = personLimit;
+	}
+
+	public Integer getBicycleId() {
+		return bicycleId;
+	}
+
+	public void setBicycleId(Integer bicycleId) {
+		this.bicycleId = bicycleId;
+	}
 }
