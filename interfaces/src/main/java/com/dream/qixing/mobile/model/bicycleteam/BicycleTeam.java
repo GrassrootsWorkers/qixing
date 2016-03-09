@@ -8,27 +8,24 @@ import com.dream.qixing.mobile.mapping.ApiField;
 import com.dream.qixing.mobile.mapping.ApiListField;
 
 public class BicycleTeam implements Serializable {
-	
-	@ApiField("bicycle_id")
+
+    @ApiField("team_id")
     private Integer cycId;
-	@ApiField("bicycle_logo")
+    @ApiField("team_logo")
     private String cycTeamLogo;
-	@ApiField("team_name")
+    @ApiField("team_name")
     private String clubName;
-
+    @ApiField("team_address")
     private String clubAddress;
-
+    @ApiField("description")
     private String clubDesc;
 
-    @ApiField("creater")
+    @ApiField("create_name")
     private String createName;
-
+    @ApiField("mobile")
     private String mobile;
-
-    private String personalPhp;
-
-    private String allowUnknow;
-
+    @ApiField("allow_stranger_apply")
+    private String allowUnknown;
     //车队上限人数
     @ApiField("person_limit")
     private Integer personLimit;
@@ -40,18 +37,18 @@ public class BicycleTeam implements Serializable {
     //车队举办的活动数
 
     private Integer activityAmount;
-    
+
     private Integer provinceId;
-    
+
     private Integer cityId;
-    
+
     @ApiListField("friends")
     @ApiField("friend")
     private List<Friend> friends;
-    
+
     @ApiListField("activitys")
     @ApiField("activity")
-    private List<Activity> activitys;	
+    private List<Activity> activitys;
     /**
      * 1-10分 根据举办的活动计算
      */
@@ -115,20 +112,12 @@ public class BicycleTeam implements Serializable {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public String getPersonalPhp() {
-        return personalPhp;
+    public String getAllowUnknown() {
+        return allowUnknown;
     }
 
-    public void setPersonalPhp(String personalPhp) {
-        this.personalPhp = personalPhp == null ? null : personalPhp.trim();
-    }
-
-    public String getAllowUnknow() {
-        return allowUnknow;
-    }
-
-    public void setAllowUnknow(String allowUnknow) {
-        this.allowUnknow = allowUnknow == null ? null : allowUnknow.trim();
+    public void setAllowUnknown(String allowUnknown) {
+        this.allowUnknown = allowUnknown;
     }
 
     public Integer getPersonLimit() {
@@ -162,49 +151,49 @@ public class BicycleTeam implements Serializable {
     public void setLiveness(String liveness) {
         this.liveness = liveness;
     }
-    
+
 
     public Integer getAmount() {
-		return amount;
-	}
+        return amount;
+    }
 
-	public void setAmount(Integer amount) {
-		this.amount = amount;
-	}
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
 
-	public Integer getProvinceId() {
-		return provinceId;
-	}
+    public Integer getProvinceId() {
+        return provinceId;
+    }
 
-	public void setProvinceId(Integer provinceId) {
-		this.provinceId = provinceId;
-	}
+    public void setProvinceId(Integer provinceId) {
+        this.provinceId = provinceId;
+    }
 
-	public Integer getCityId() {
-		return cityId;
-	}
+    public Integer getCityId() {
+        return cityId;
+    }
 
-	public void setCityId(Integer cityId) {
-		this.cityId = cityId;
-	}
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
+    }
 
-	public List<Friend> getFriends() {
-		return friends;
-	}
+    public List<Friend> getFriends() {
+        return friends;
+    }
 
-	public void setFriends(List<Friend> friends) {
-		this.friends = friends;
-	}
+    public void setFriends(List<Friend> friends) {
+        this.friends = friends;
+    }
 
-	public List<Activity> getActivitys() {
-		return activitys;
-	}
+    public List<Activity> getActivitys() {
+        return activitys;
+    }
 
-	public void setActivitys(List<Activity> activitys) {
-		this.activitys = activitys;
-	}
+    public void setActivitys(List<Activity> activitys) {
+        this.activitys = activitys;
+    }
 
-	@Override
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
@@ -217,8 +206,7 @@ public class BicycleTeam implements Serializable {
         sb.append(", clubDesc=").append(clubDesc);
         sb.append(", createName=").append(createName);
         sb.append(", mobile=").append(mobile);
-        sb.append(", personalPhp=").append(personalPhp);
-        sb.append(", allowUnknow=").append(allowUnknow);
+
         sb.append(", personLimit=").append(personLimit);
         sb.append(", createTime=").append(createTime);
         sb.append(", activityAmount=").append(activityAmount);
