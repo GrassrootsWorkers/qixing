@@ -9,7 +9,10 @@ import com.dream.qixing.mobile.mapping.ApiListField;
 
 public class BicycleTeam implements Serializable {
 
-    @ApiField("team_id")
+    @ApiField("user_id")
+    private Integer userId;
+
+    @ApiField("bicycle_id")
     private Integer cycId;
     @ApiField("team_logo")
     private String cycTeamLogo;
@@ -41,6 +44,8 @@ public class BicycleTeam implements Serializable {
     private Integer provinceId;
 
     private Integer cityId;
+    @ApiField("if_take_part")
+    private String  isJoin;
 
     @ApiListField("friends")
     @ApiField("friend")
@@ -191,6 +196,22 @@ public class BicycleTeam implements Serializable {
 
     public void setActivitys(List<Activity> activitys) {
         this.activitys = activitys;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getIsJoin() {
+        return isJoin;
+    }
+
+    public void setIsJoin(String isJoin) {
+        this.isJoin = isJoin;
     }
 
     @Override

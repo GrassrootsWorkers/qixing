@@ -4,41 +4,24 @@ import java.io.Serializable;
 import java.util.Date;
 
 import com.dream.qixing.mobile.mapping.ApiField;
+import com.dream.qixing.mobile.model.user.User;
 
 public class Friend implements Serializable {
     @ApiField("user_id")
-    private Integer id;
-    private Integer cycId;
-    private Integer activityId;
-
     private Integer userId;
-
     @ApiField("nick_name")
     private String nickName;
-
+    @ApiField("user_image")
+    private String image;
+    @ApiField("location")
+    private String location;
+    private Integer cycId;
+    private Integer activityId;
     private Date addTime;
-
     private Integer status;
     //是否是管理员，创建者默认是管理员
     private String ifAdmin;
-
-    private static final long serialVersionUID = 1L;
-
-    public String getIfAdmin() {
-		return ifAdmin;
-	}
-
-	public void setIfAdmin(String ifAdmin) {
-		this.ifAdmin = ifAdmin;
-	}
-
-	public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private int roleCode;
 
     public Integer getCycId() {
         return cycId;
@@ -48,12 +31,12 @@ public class Friend implements Serializable {
         this.cycId = cycId;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getActivityId() {
+        return activityId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setActivityId(Integer activityId) {
+        this.activityId = activityId;
     }
 
     public Date getAddTime() {
@@ -72,27 +55,51 @@ public class Friend implements Serializable {
         this.status = status;
     }
 
+    public String getIfAdmin() {
+        return ifAdmin;
+    }
+
+    public void setIfAdmin(String ifAdmin) {
+        this.ifAdmin = ifAdmin;
+    }
+
+    public int getRoleCode() {
+        return roleCode;
+    }
+
+    public void setRoleCode(int roleCode) {
+        this.roleCode = roleCode;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     public String getNickName() {
-		return nickName;
-	}
+        return nickName;
+    }
 
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
 
-	@Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", cycId=").append(cycId);
-        sb.append(", userId=").append(userId);
-        sb.append(", addTime=").append(addTime);
-        sb.append(", status=").append(status);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

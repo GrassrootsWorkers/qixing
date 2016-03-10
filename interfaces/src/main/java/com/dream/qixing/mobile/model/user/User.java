@@ -13,6 +13,8 @@ public class User implements Serializable {
     private String nickName;
     @ApiField("sex")
     private String sex;
+    @ApiField("user_image")
+    private String image;
 
     /**
      * 骑过路线的难度最高等级 --根据路线进行测评，定期更新该字段，为推荐好友做准备
@@ -47,8 +49,6 @@ public class User implements Serializable {
      * 根据使用次数和组件车队的次数
      */
     private Integer activeLevel;
-
-    private String image;
 
     private String spreadCode;
 
