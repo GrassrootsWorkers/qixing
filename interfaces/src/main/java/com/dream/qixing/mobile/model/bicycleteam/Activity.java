@@ -9,8 +9,10 @@ import java.util.List;
 public class Activity implements Serializable {
     @ApiField("activity_id")
     private Integer activityId;
-    @ApiField("desc")
+    @ApiField("activity_desc")
     private String activityDesc;
+    @ApiField("activity_name")
+    private String activityName;
     @ApiField("begin_time")
     private Date beginTime;
     @ApiField("end_time")
@@ -19,38 +21,127 @@ public class Activity implements Serializable {
     private Date applyEndTime;
     @ApiField("road_book_id")
     private Integer roadBookId;
-    @ApiField("location")
+    @ApiField("book_name")
+    private String roadBookName;
+    @ApiField("meet_address")
     private String activityAddress;
-    @ApiField("activity_name")
-    private String activityName;
-    private String roles;
-
-    @ApiField("people_limit")
+    @ApiField("people_number")
     private Integer peopleNum;
-    @ApiField("applied_amount")
+    @ApiField("expenses")
+    private Double expenses;
+    @ApiField("amount")
     private Integer amount;
+    @ApiField("if_must_join_team")
+    private String ifMustJoinTeam;
+    @ApiField("organiser")
+    private String organiser;
+    @ApiField("meet_address")
+    private String meetAddress;
     private String ifMass;
-
-    private String allowUnknow;
-
-    private Double applyFee;
-
+    private String roles;
     private Date createTime;
-
     private String startX;
-
     private String startY;
-    
     private String endX;
-
     private String endY;
-
     /**
      * 0：活动刚创建，1：活动通过审核开始报名，2活动结束报名，3活动进行中 4 活动结束
      */
     private Integer activityStatus;
-    
-    private List<ActivityApply> applys;
+    @ApiField("status")
+    private String statusName;
+    @ApiField("activity_type")
+    private int activityType;
+    private String activityImages;
+    //正在报名活动提示
+    @ApiField("prompt")
+    private String prompt;
+    @ApiField("mileage")
+    private double mileage;
+    @ApiField("images")
+    private String images;
+
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
+
+    public String getRoadBookName() {
+        return roadBookName;
+    }
+
+    public void setRoadBookName(String roadBookName) {
+        this.roadBookName = roadBookName;
+    }
+
+    public String getPrompt() {
+        return prompt;
+    }
+
+    public double getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(double mileage) {
+        this.mileage = mileage;
+    }
+
+    public void setPrompt(String prompt) {
+        this.prompt = prompt;
+    }
+
+    public String getOrganiser() {
+        return organiser;
+    }
+
+    public String getMeetAddress() {
+        return meetAddress;
+    }
+
+    public void setMeetAddress(String meetAddress) {
+        this.meetAddress = meetAddress;
+    }
+
+    public void setOrganiser(String organiser) {
+        this.organiser = organiser;
+    }
+
+    public String getStatusName() {
+        return statusName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
+    }
+
+    public int getActivityType() {
+        return activityType;
+    }
+
+    public void setActivityType(int activityType) {
+        this.activityType = activityType;
+    }
+
+    public List<ActivityApply> getApplicant() {
+        return applicant;
+    }
+
+    public void setApplicant(List<ActivityApply> applicant) {
+        this.applicant = applicant;
+    }
+
+    public Double getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(Double expenses) {
+        this.expenses = expenses;
+    }
+
+    private List<ActivityApply> applicant;
 
     public String getActivityAddress() {
         return activityAddress;
@@ -150,20 +241,20 @@ public class Activity implements Serializable {
         this.ifMass = ifMass == null ? null : ifMass.trim();
     }
 
-    public String getAllowUnknow() {
-        return allowUnknow;
+    public String getIfMustJoinTeam() {
+        return ifMustJoinTeam;
     }
 
-    public void setAllowUnknow(String allowUnknow) {
-        this.allowUnknow = allowUnknow == null ? null : allowUnknow.trim();
+    public void setIfMustJoinTeam(String ifMustJoinTeam) {
+        this.ifMustJoinTeam = ifMustJoinTeam;
     }
 
-    public Double getApplyFee() {
-        return applyFee;
+    public String getActivityImages() {
+        return activityImages;
     }
 
-    public void setApplyFee(Double applyFee) {
-        this.applyFee = applyFee;
+    public void setActivityImages(String activityImages) {
+        this.activityImages = activityImages;
     }
 
     public Date getCreateTime() {
@@ -213,16 +304,6 @@ public class Activity implements Serializable {
     public void setActivityStatus(Integer activityStatus) {
         this.activityStatus = activityStatus;
     }
-
-    public List<ActivityApply> getApplys() {
-		return applys;
-	}
-
-	public void setApplys(List<ActivityApply> applys) {
-		this.applys = applys;
-	}
-
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -238,8 +319,6 @@ public class Activity implements Serializable {
         sb.append(", roles=").append(roles);
         sb.append(", peopleNum=").append(peopleNum);
         sb.append(", ifMass=").append(ifMass);
-        sb.append(", allowUnknow=").append(allowUnknow);
-        sb.append(", applyFee=").append(applyFee);
         sb.append(", createTime=").append(createTime);
         sb.append(", startX=").append(startX);
         sb.append(", endX=").append(endX);

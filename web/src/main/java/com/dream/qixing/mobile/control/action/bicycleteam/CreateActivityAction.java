@@ -6,7 +6,7 @@ import com.dream.qixing.mobile.config.ApiAction;
 import com.dream.qixing.mobile.control.action.BaseAction;
 import com.dream.qixing.mobile.mapping.ApiField;
 
-@ApiAction("bicycle.team.activity")
+@ApiAction("bicycle.activity.create")
 public class CreateActivityAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
@@ -14,37 +14,39 @@ public class CreateActivityAction extends BaseAction {
 	private Integer bicycleId;
 	@ApiField("activity_id")
 	private Integer activityId;
-
-	private String activityDesc;
-	private String activityAddress;
 	private String activityName;
+	private String activityDesc;
 	private Date beginTime;
-
 	private Date endTime;
-
 	private Date applyEndTime;
-
 	private Integer roadBookId;
-
-
 	private Integer peopleNumber;
-
-
-	private String allowUnknown;
-
-	private Double applyFee;
-
+	private String ifMustJoinTeam;
+	private Double expenses;
 	private String meetAddress;
 	//活动上传的图片串
 	private String images;
 
 	public String execute() {
-		this.activityId = 1000;
-		this.bicycleId = 1000;
-		this.setIsSuccessful(true);
-		this.setStatusCode(200);
-		this.setDescription("创建活动成功");
-		this.setUserId(1000);
+		if(bicycleId == 1){
+			this.setIsSuccessful(false);
+			this.setStatusCode(501);
+			this.setDescription("车队不存在");
+			this.setUserId(1000);
+		}else if(bicycleId == 2){
+			this.setIsSuccessful(false);
+			this.setStatusCode(500);
+			this.setDescription("系统错误，正在努力维护中！");
+			this.setUserId(1000);
+		}else {
+			this.activityId = 1000;
+			this.bicycleId = 1000;
+			this.setIsSuccessful(true);
+			this.setStatusCode(200);
+			this.setDescription("创建活动成功");
+			this.setUserId(1000);
+		}
+
 
 		return "";
 	}
@@ -69,14 +71,6 @@ public class CreateActivityAction extends BaseAction {
 
 	public void setActivityDesc(String activityDesc) {
 		this.activityDesc = activityDesc;
-	}
-
-	public String getActivityAddress() {
-		return activityAddress;
-	}
-
-	public void setActivityAddress(String activityAddress) {
-		this.activityAddress = activityAddress;
 	}
 
 	public String getActivityName() {
@@ -127,20 +121,20 @@ public class CreateActivityAction extends BaseAction {
 		this.peopleNumber = peopleNumber;
 	}
 
-	public String getAllowUnknown() {
-		return allowUnknown;
+	public Double getExpenses() {
+		return expenses;
 	}
 
-	public void setAllowUnknown(String allowUnknown) {
-		this.allowUnknown = allowUnknown;
+	public void setExpenses(Double expenses) {
+		this.expenses = expenses;
 	}
 
-	public Double getApplyFee() {
-		return applyFee;
+	public String getIfMustJoinTeam() {
+		return ifMustJoinTeam;
 	}
 
-	public void setApplyFee(Double applyFee) {
-		this.applyFee = applyFee;
+	public void setIfMustJoinTeam(String ifMustJoinTeam) {
+		this.ifMustJoinTeam = ifMustJoinTeam;
 	}
 
 	public String getMeetAddress() {

@@ -12,7 +12,7 @@ import com.dream.qixing.mobile.model.bicycleteam.Activity;
 import com.dream.qixing.mobile.model.bicycleteam.BicycleTeam;
 import com.dream.qixing.mobile.model.bicycleteam.Friend;
 
-@ApiAction("bicycle.activity.list")
+@ApiAction("bicycle.team.list")
 public class QueryBicycleTeamListAction extends BaseAction {
 	
 	//查询类型  1:推荐的车队 2：参加的车队
