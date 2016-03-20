@@ -2,6 +2,7 @@ package com.dream.qixing.mobile.control.action.user;
 
 import com.dream.qixing.mobile.config.ApiAction;
 import com.dream.qixing.mobile.control.action.BaseAction;
+import com.dream.qixing.mobile.mapping.ApiField;
 
 /**
  * Created by Administrator on 2016/3/1 0001.
@@ -11,6 +12,8 @@ public class UserLoginAction extends BaseAction{
 
     private String mobile;
     private String password;
+    @ApiField("if_first")
+    private String ifFirst="Y";
     public String execute(){
         if(!validateMobile(mobile)){
             this.setIsSuccessful(false);
@@ -23,6 +26,7 @@ public class UserLoginAction extends BaseAction{
             this.setStatusCode(200);
             this.setDescription("登录成功！");
             this.setUserId(10000);
+            ifFirst="Y";
             return "";
         }else{
             this.setIsSuccessful(false);
@@ -50,5 +54,13 @@ public class UserLoginAction extends BaseAction{
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
+    }
+
+    public String getIfFirst() {
+        return ifFirst;
+    }
+
+    public void setIfFirst(String ifFirst) {
+        this.ifFirst = ifFirst;
     }
 }
