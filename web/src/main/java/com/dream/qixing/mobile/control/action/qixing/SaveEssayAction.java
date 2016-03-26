@@ -8,23 +8,32 @@ public class SaveEssayAction extends BaseAction {
 
 	private String reportId;
 	private String desc;
-	private String imageStrs;
+	private String image;
 	private String locationLon;
 	private String locationLat;
+	private String locationName;
 	@Override
 	public String execute(){
 		//保存到数据库
 		this.setIsSuccessful(true);
 		this.setStatusCode(200);
-		this.setUserId(1000);
-		
+		this.setUserId(10000);
+		this.setDescription("保存成功");
 		return "";
 	}
 	@Override
 	public String getResponseName() {
-		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public String getLocationName() {
+		return locationName;
+	}
+
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
+	}
+
 	public String getReportId() {
 		return reportId;
 	}
@@ -37,14 +46,14 @@ public class SaveEssayAction extends BaseAction {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	public String getImageStrs() {
-		return imageStrs;
-	}
-	public void setImageStrs(String imageStrs) {
-		this.imageStrs = imageStrs;
+
+	public String getImage() {
+		return image;
 	}
 
-
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	public String getLocationLon() {
 		return locationLon;

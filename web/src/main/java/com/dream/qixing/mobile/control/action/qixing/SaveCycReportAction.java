@@ -1,7 +1,5 @@
 package com.dream.qixing.mobile.control.action.qixing;
 
-import java.util.Date;
-
 import com.dream.qixing.mobile.config.ApiAction;
 import com.dream.qixing.mobile.control.action.BaseAction;
 
@@ -9,30 +7,17 @@ import com.dream.qixing.mobile.control.action.BaseAction;
 public class SaveCycReportAction extends BaseAction {
 
 	private Integer reportId;
-
-
-
 	private String qxName;
-
-	private Date startTime;
-
-	private String gpsStrs;
-
-	private Integer difficultyDeg;
-
-	private String averageSpeed;
-
-	private String highestSpeed;
-
-	private String lowestSpeed;
-
+	private Double mileage;
 	private String timeConsume;
-
+	private Double averageSpeed;
+	private Double highestSpeed;
+	private Double lowestSpeed;
 	private String caloricValue;
-
 	private Integer roadBookId;
 	//爬升高度
 	private String height;
+	private String tracks;
 	
 	public String execute() {
 		//保存到数据库
@@ -44,7 +29,6 @@ public class SaveCycReportAction extends BaseAction {
 
 	@Override
 	public String getResponseName() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -64,52 +48,12 @@ public class SaveCycReportAction extends BaseAction {
 		this.qxName = qxName;
 	}
 
-	public Date getStartTime() {
-		return startTime;
+	public Double getMileage() {
+		return mileage;
 	}
 
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
-	}
-
-	public String getGpsStrs() {
-		return gpsStrs;
-	}
-
-	public void setGpsStrs(String gpsStrs) {
-		this.gpsStrs = gpsStrs;
-	}
-
-	public Integer getDifficultyDeg() {
-		return difficultyDeg;
-	}
-
-	public void setDifficultyDeg(Integer difficultyDeg) {
-		this.difficultyDeg = difficultyDeg;
-	}
-
-	public String getAverageSpeed() {
-		return averageSpeed;
-	}
-
-	public void setAverageSpeed(String averageSpeed) {
-		this.averageSpeed = averageSpeed;
-	}
-
-	public String getHighestSpeed() {
-		return highestSpeed;
-	}
-
-	public void setHighestSpeed(String highestSpeed) {
-		this.highestSpeed = highestSpeed;
-	}
-
-	public String getLowestSpeed() {
-		return lowestSpeed;
-	}
-
-	public void setLowestSpeed(String lowestSpeed) {
-		this.lowestSpeed = lowestSpeed;
+	public void setMileage(Double mileage) {
+		this.mileage = mileage;
 	}
 
 	public String getTimeConsume() {
@@ -118,6 +62,30 @@ public class SaveCycReportAction extends BaseAction {
 
 	public void setTimeConsume(String timeConsume) {
 		this.timeConsume = timeConsume;
+	}
+
+	public Double getAverageSpeed() {
+		return averageSpeed;
+	}
+
+	public void setAverageSpeed(Double averageSpeed) {
+		this.averageSpeed = averageSpeed;
+	}
+
+	public Double getHighestSpeed() {
+		return highestSpeed;
+	}
+
+	public void setHighestSpeed(Double highestSpeed) {
+		this.highestSpeed = highestSpeed;
+	}
+
+	public Double getLowestSpeed() {
+		return lowestSpeed;
+	}
+
+	public void setLowestSpeed(Double lowestSpeed) {
+		this.lowestSpeed = lowestSpeed;
 	}
 
 	public String getCaloricValue() {
@@ -142,5 +110,13 @@ public class SaveCycReportAction extends BaseAction {
 
 	public void setHeight(String height) {
 		this.height = height;
+	}
+
+	public String getTracks() {
+		return tracks;
+	}
+
+	public void setTracks(String tracks) {
+		this.tracks = tracks;
 	}
 }

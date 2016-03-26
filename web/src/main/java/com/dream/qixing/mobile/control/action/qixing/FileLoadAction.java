@@ -25,8 +25,8 @@ public class FileLoadAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	private String rootPath="d:\\";
 	File tempPathFile;
-	@ApiListField("imgs")
-	@ApiField("img_url")
+	@ApiListField("images")
+	@ApiField("image")
 	private List<String> imgUrl = new ArrayList<String>();;
 
 	public String execute() {

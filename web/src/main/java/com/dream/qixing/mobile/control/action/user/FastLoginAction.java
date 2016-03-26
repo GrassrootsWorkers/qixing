@@ -5,15 +5,16 @@ import com.dream.qixing.mobile.control.action.BaseAction;
 import com.dream.qixing.mobile.mapping.ApiField;
 
 /**
- * Created by Administrator on 2016/3/1 0001.
+ * Created by Administrator on 2016/2/28 0028.
  */
-@ApiAction(value="customer.login")
-public class UserLoginAction extends BaseAction{
+@ApiAction(value ="customer.fastlogin")
+public class FastLoginAction extends BaseAction {
 
     private String mobile;
-    private String password;
+    private String checkCode;
     @ApiField("if_first")
     private String ifFirst;
+    @Override
     public String execute(){
         if(!validateMobile(mobile)){
             this.setIsSuccessful(false);
@@ -21,7 +22,7 @@ public class UserLoginAction extends BaseAction{
             this.setDescription("手机号格式不正确！");
             return"";
         }
-        if("admin1".equals(password)){
+        if("123456".equals(checkCode)){
             this.setIsSuccessful(true);
             this.setStatusCode(200);
             this.setDescription("登录成功！");
@@ -29,7 +30,7 @@ public class UserLoginAction extends BaseAction{
             ifFirst="Y";
             return "";
         }
-        if("admin".equals(password)){
+        if("654321".equals(checkCode)){
             this.setIsSuccessful(true);
             this.setStatusCode(200);
             this.setDescription("登录成功！");
@@ -39,21 +40,14 @@ public class UserLoginAction extends BaseAction{
         }else{
             this.setIsSuccessful(false);
             this.setStatusCode(501);
-            this.setDescription("密码错误！");
+            this.setDescription("验证码不正确！");
             return "";
         }
+
     }
     @Override
     public String getResponseName() {
         return null;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getMobile() {
@@ -64,11 +58,12 @@ public class UserLoginAction extends BaseAction{
         this.mobile = mobile;
     }
 
-    public String getIfFirst() {
-        return ifFirst;
+
+    public String getCheckCode() {
+        return checkCode;
     }
 
-    public void setIfFirst(String ifFirst) {
-        this.ifFirst = ifFirst;
+    public void setCheckCode(String checkCode) {
+        this.checkCode = checkCode;
     }
 }
