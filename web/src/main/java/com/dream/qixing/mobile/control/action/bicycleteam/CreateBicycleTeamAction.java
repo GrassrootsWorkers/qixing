@@ -14,13 +14,14 @@ public class CreateBicycleTeamAction extends BaseAction {
 
 	private String clubAddress;
 
-	private String description;
+	private String desc;
 
 	private String createName;
 
 	private String mobile;
 
 	private String allowStrangerApply;
+	private String purpose;
 
 	private Integer personLimit;
 	@ApiField("bicycle_id")
@@ -41,6 +42,14 @@ public class CreateBicycleTeamAction extends BaseAction {
 	public String getResponseName() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 
 	public String getBicycleTeamLogo() {
@@ -67,14 +76,12 @@ public class CreateBicycleTeamAction extends BaseAction {
 		this.clubAddress = clubAddress;
 	}
 
-	@Override
-	public String getDescription() {
-		return description;
+	public String getPurpose() {
+		return purpose;
 	}
 
-	@Override
-	public void setDescription(String description) {
-		this.description = description;
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
 	}
 
 	public String getCreateName() {

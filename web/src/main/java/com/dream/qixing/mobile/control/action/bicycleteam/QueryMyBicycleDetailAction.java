@@ -3,27 +3,30 @@ package com.dream.qixing.mobile.control.action.bicycleteam;
 import com.dream.qixing.mobile.config.ApiAction;
 import com.dream.qixing.mobile.control.action.BaseAction;
 import com.dream.qixing.mobile.mapping.ApiField;
+import com.dream.qixing.mobile.model.bicycleteam.Activity;
 import com.dream.qixing.mobile.model.bicycleteam.BicycleTeam;
+import com.dream.qixing.mobile.model.bicycleteam.Friend;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-@ApiAction("bicycle.team.detail")
-public class QueryBicycleDetailAction extends BaseAction {
-    private Integer bicycleId;
+@ApiAction("bicycle.myTeam.detail")
+public class QueryMyBicycleDetailAction extends BaseAction {
 
     @ApiField("bicycle_team")
     private BicycleTeam bicycleTeam;
 
     public String execute() {
-        bicycleTeam = new BicycleTeam();
-        if(this.getUserId()== null){
+        if(this.getUserId() == null){
             this.setIsSuccessful(false);
-            this.setStatusCode(500);
-            this.setDescription("系统异常");
+            this.setStatusCode(400);
+            this.setDescription("您还没创建车队请先创建车队！");
             return"";
         }else{
-            bicycleTeam.setUserId(10001);
-            bicycleTeam.setCycId(bicycleId);
+            bicycleTeam = new BicycleTeam();
+            bicycleTeam.setUserId(this.getUserId());
+            bicycleTeam.setCycId(10000);
             bicycleTeam.setCycTeamLogo("http://qixing.com/imgage.jpg");
             bicycleTeam.setPurpose("快乐健身，传递快乐");
             bicycleTeam.setAmount(100);
@@ -36,7 +39,7 @@ public class QueryBicycleDetailAction extends BaseAction {
             bicycleTeam.setCreateName("刘先生");
             this.setIsSuccessful(true);
             this.setStatusCode(200);
-            this.setDescription("获取车队信息成功！");
+            this.setDescription("查看我的车队信息成功！");
             return"";
         }
 
@@ -48,11 +51,4 @@ public class QueryBicycleDetailAction extends BaseAction {
         return null;
     }
 
-    public Integer getBicycleId() {
-        return bicycleId;
-    }
-
-    public void setBicycleId(Integer bicycleId) {
-        this.bicycleId = bicycleId;
-    }
 }
