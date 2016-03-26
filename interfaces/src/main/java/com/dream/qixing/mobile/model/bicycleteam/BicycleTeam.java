@@ -20,9 +20,10 @@ public class BicycleTeam implements Serializable {
     private String clubName;
     @ApiField("team_address")
     private String clubAddress;
-    @ApiField("description")
+    @ApiField("desc")
     private String clubDesc;
-
+    @ApiField("purpose")
+    private String purpose;
     @ApiField("create_name")
     private String createName;
     @ApiField("mobile")
@@ -38,28 +39,24 @@ public class BicycleTeam implements Serializable {
     @ApiField("create_time")
     private Date createTime;
     //车队举办的活动数
-
     private Integer activityAmount;
-
     private Integer provinceId;
-
     private Integer cityId;
     @ApiField("if_take_part")
     private String  isJoin;
-
-    @ApiListField("friends")
-    @ApiField("friend")
-    private List<Friend> friends;
-
-    @ApiListField("activitys")
-    @ApiField("activity")
-    private List<Activity> activitys;
     /**
      * 1-10分 根据举办的活动计算
      */
-    private String liveness;
+    @ApiField("activeness")
+    private String activeness;
 
-    private static final long serialVersionUID = 1L;
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
     public Integer getCycId() {
         return cycId;
@@ -74,7 +71,7 @@ public class BicycleTeam implements Serializable {
     }
 
     public void setCycTeamLogo(String cycTeamLogo) {
-        this.cycTeamLogo = cycTeamLogo == null ? null : cycTeamLogo.trim();
+        this.cycTeamLogo = cycTeamLogo;
     }
 
     public String getClubName() {
@@ -82,7 +79,7 @@ public class BicycleTeam implements Serializable {
     }
 
     public void setClubName(String clubName) {
-        this.clubName = clubName == null ? null : clubName.trim();
+        this.clubName = clubName;
     }
 
     public String getClubAddress() {
@@ -90,7 +87,7 @@ public class BicycleTeam implements Serializable {
     }
 
     public void setClubAddress(String clubAddress) {
-        this.clubAddress = clubAddress == null ? null : clubAddress.trim();
+        this.clubAddress = clubAddress;
     }
 
     public String getClubDesc() {
@@ -98,7 +95,15 @@ public class BicycleTeam implements Serializable {
     }
 
     public void setClubDesc(String clubDesc) {
-        this.clubDesc = clubDesc == null ? null : clubDesc.trim();
+        this.clubDesc = clubDesc;
+    }
+
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
     }
 
     public String getCreateName() {
@@ -106,7 +111,7 @@ public class BicycleTeam implements Serializable {
     }
 
     public void setCreateName(String createName) {
-        this.createName = createName == null ? null : createName.trim();
+        this.createName = createName;
     }
 
     public String getMobile() {
@@ -114,7 +119,7 @@ public class BicycleTeam implements Serializable {
     }
 
     public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : mobile.trim();
+        this.mobile = mobile;
     }
 
     public String getAllowUnknown() {
@@ -133,6 +138,14 @@ public class BicycleTeam implements Serializable {
         this.personLimit = personLimit;
     }
 
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -147,23 +160,6 @@ public class BicycleTeam implements Serializable {
 
     public void setActivityAmount(Integer activityAmount) {
         this.activityAmount = activityAmount;
-    }
-
-    public String getLiveness() {
-        return liveness;
-    }
-
-    public void setLiveness(String liveness) {
-        this.liveness = liveness;
-    }
-
-
-    public Integer getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-        this.amount = amount;
     }
 
     public Integer getProvinceId() {
@@ -182,30 +178,6 @@ public class BicycleTeam implements Serializable {
         this.cityId = cityId;
     }
 
-    public List<Friend> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(List<Friend> friends) {
-        this.friends = friends;
-    }
-
-    public List<Activity> getActivitys() {
-        return activitys;
-    }
-
-    public void setActivitys(List<Activity> activitys) {
-        this.activitys = activitys;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
     public String getIsJoin() {
         return isJoin;
     }
@@ -214,26 +186,11 @@ public class BicycleTeam implements Serializable {
         this.isJoin = isJoin;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", cycId=").append(cycId);
-        sb.append(", cycTeamLogo=").append(cycTeamLogo);
-        sb.append(", clubName=").append(clubName);
-        sb.append(", clubAddress=").append(clubAddress);
-        sb.append(", clubDesc=").append(clubDesc);
-        sb.append(", createName=").append(createName);
-        sb.append(", mobile=").append(mobile);
+    public String getActiveness() {
+        return activeness;
+    }
 
-        sb.append(", personLimit=").append(personLimit);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", activityAmount=").append(activityAmount);
-        sb.append(", liveness=").append(liveness);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+    public void setActiveness(String activeness) {
+        this.activeness = activeness;
     }
 }

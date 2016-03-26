@@ -11,9 +11,6 @@ public class RoadBookLocation implements Serializable {
     @ApiField("location_name")
     private String xyzName;
 
-    @ApiField("location")
-    private String xyz;
-
     private Date createTime;
 
     private Integer roadBookId;
@@ -41,14 +38,6 @@ public class RoadBookLocation implements Serializable {
 
     public void setXyzName(String xyzName) {
         this.xyzName = xyzName == null ? null : xyzName.trim();
-    }
-
-    public String getXyz() {
-        return xyz;
-    }
-
-    public void setXyz(String xyz) {
-        this.xyz = xyz == null ? null : xyz.trim();
     }
 
     public Date getCreateTime() {
@@ -99,7 +88,6 @@ public class RoadBookLocation implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", xyzId=").append(xyzId);
         sb.append(", xyzName=").append(xyzName);
-        sb.append(", xyz=").append(xyz);
         sb.append(", createTime=").append(createTime);
         sb.append(", roadBookId=").append(roadBookId);
         sb.append(", serialVersionUID=").append(serialVersionUID);

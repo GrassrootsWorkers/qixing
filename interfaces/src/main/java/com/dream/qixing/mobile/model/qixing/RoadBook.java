@@ -10,41 +10,25 @@ import com.dream.qixing.mobile.mapping.ApiListField;
 public class RoadBook implements Serializable {
 	@ApiField("road_book_id")
     private Integer roadBookId;
-
-    private String creater;
-
-    private Integer activityId;
-
-    private Integer allDistance;
+    @ApiField("road_name")
+    private String name;
+    @ApiField("road_map")
+    private String roadMap;
+    @ApiField("creator")
+    private String creator;
+    @ApiField("mileage")
+    private Integer mileage;
 
     private Integer estimatedTime;
-
+    @ApiField("difficulty")
     private Integer difficulty;
 
+    @ApiField("if_use")
     private Integer status;
-    
-    @ApiField("begin_lon")
-    private String beginX;
-    @ApiField("begin_lat")
-    private String beginY;
-    @ApiField("end_lon")
-    private String endX;
-    @ApiField("end_lat")
-    private String endY;
-
+    @ApiField("create_time")
     private Date createTime;
 
-    @ApiListField("locations")
-    @ApiField("location")
-    private List<RoadBookLocation> locations;
-    
-    public List<RoadBookLocation> getLocations() {
-		return locations;
-	}
 
-	public void setLocations(List<RoadBookLocation> locations) {
-		this.locations = locations;
-	}
 
 	private static final long serialVersionUID = 1L;
 
@@ -56,28 +40,36 @@ public class RoadBook implements Serializable {
         this.roadBookId = roadBookId;
     }
 
-    public String getCreater() {
-        return creater;
+    public String getName() {
+        return name;
     }
 
-    public void setCreater(String creater) {
-        this.creater = creater == null ? null : creater.trim();
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Integer getActivityId() {
-        return activityId;
+    public String getRoadMap() {
+        return roadMap;
     }
 
-    public void setActivityId(Integer activityId) {
-        this.activityId = activityId;
+    public void setRoadMap(String roadMap) {
+        this.roadMap = roadMap;
     }
 
-    public Integer getAllDistance() {
-        return allDistance;
+    public String getCreator() {
+        return creator;
     }
 
-    public void setAllDistance(Integer allDistance) {
-        this.allDistance = allDistance;
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    public Integer getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(Integer mileage) {
+        this.mileage = mileage;
     }
 
     public Integer getEstimatedTime() {
@@ -104,65 +96,11 @@ public class RoadBook implements Serializable {
         this.status = status;
     }
 
-   
-
-    public String getBeginX() {
-		return beginX;
-	}
-
-	public void setBeginX(String beginX) {
-		this.beginX = beginX;
-	}
-
-	public String getBeginY() {
-		return beginY;
-	}
-
-	public void setBeginY(String beginY) {
-		this.beginY = beginY;
-	}
-
-	public String getEndX() {
-		return endX;
-	}
-
-	public void setEndX(String endX) {
-		this.endX = endX;
-	}
-
-	public String getEndY() {
-		return endY;
-	}
-
-	public void setEndY(String endY) {
-		this.endY = endY;
-	}
-
-	public Date getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", roadBookId=").append(roadBookId);
-        sb.append(", creater=").append(creater);
-        sb.append(", activityId=").append(activityId);
-        sb.append(", allDistance=").append(allDistance);
-        sb.append(", estimatedTime=").append(estimatedTime);
-        sb.append(", difficulty=").append(difficulty);
-        sb.append(", status=").append(status);
-    
-        sb.append(", createTime=").append(createTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
     }
 }

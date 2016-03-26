@@ -47,8 +47,9 @@ public class Activity implements Serializable {
     /**
      * 0：活动刚创建，1：活动通过审核开始报名，2活动结束报名，3活动进行中 4 活动结束
      */
-    private Integer activityStatus;
     @ApiField("status")
+    private Integer activityStatus;
+    @ApiField("status_name")
     private String statusName;
     @ApiField("activity_type")
     private int activityType;

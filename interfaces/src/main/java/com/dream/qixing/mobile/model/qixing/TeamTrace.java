@@ -3,22 +3,20 @@ package com.dream.qixing.mobile.model.qixing;
 import com.dream.qixing.mobile.mapping.ApiField;
 
 public class TeamTrace {
-	
-	
 	private String roleName;
 	@ApiField("role_code")
 	private Integer roleCode;
-	
 	@ApiField("user_id")
 	private Integer userId;
+	@ApiField("activity_id")
 	private Integer activityId;
 	@ApiField("nick_name")
 	private String nickName;
 	@ApiField("speed")
 	private String speed;
-	@ApiField("lon")
+	@ApiField("location_lon")
 	private String locationX;
-	@ApiField("lat")
+	@ApiField("location_lat")
 	private String locationY;
 	public String getRoleName() {
 		return roleName;
