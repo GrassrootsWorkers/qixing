@@ -52,6 +52,9 @@ public class Activity implements Serializable {
     @ApiField("status_name")
     private String statusName;
     @ApiField("activity_type")
+    /**
+     * 1:自己创建的活动 2：参加的活动  0:正在报名的活动
+     */
     private int activityType;
     private String activityImages;
     //正在报名活动提示
