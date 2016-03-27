@@ -1,28 +1,27 @@
 package com.dream.qixing.mobile.model.bicycle;
 
+import com.dream.qixing.mobile.mapping.ApiField;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class BicycleSeries implements Serializable {
-    private Integer serieId;
-
+    @ApiField("series_id")
+    private Integer seriesId;
+    @ApiField("series_name")
+    private String seriesName;
+    @ApiField("brand_id")
     private Integer brandId;
 
     private Date inputTime;
 
     private Integer status;
 
-    private String serieName;
+
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getSerieId() {
-        return serieId;
-    }
 
-    public void setSerieId(Integer serieId) {
-        this.serieId = serieId;
-    }
 
     public Integer getBrandId() {
         return brandId;
@@ -48,12 +47,20 @@ public class BicycleSeries implements Serializable {
         this.status = status;
     }
 
-    public String getSerieName() {
-        return serieName;
+    public Integer getSeriesId() {
+        return seriesId;
     }
 
-    public void setSerieName(String serieName) {
-        this.serieName = serieName == null ? null : serieName.trim();
+    public void setSeriesId(Integer seriesId) {
+        this.seriesId = seriesId;
+    }
+
+    public String getSeriesName() {
+        return seriesName;
+    }
+
+    public void setSeriesName(String seriesName) {
+        this.seriesName = seriesName;
     }
 
     @Override
@@ -62,11 +69,9 @@ public class BicycleSeries implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", serieId=").append(serieId);
         sb.append(", brandId=").append(brandId);
         sb.append(", inputTime=").append(inputTime);
         sb.append(", status=").append(status);
-        sb.append(", serieName=").append(serieName);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

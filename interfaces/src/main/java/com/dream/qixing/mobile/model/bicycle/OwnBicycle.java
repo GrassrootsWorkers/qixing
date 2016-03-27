@@ -1,40 +1,91 @@
 package com.dream.qixing.mobile.model.bicycle;
 
+import com.dream.qixing.mobile.mapping.ApiField;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class OwnBicycle implements Serializable {
-    private Integer bicycleId;
 
+    @ApiField("bicycle_number")
+    private Integer Id;
+
+    @ApiField("own_user")
     private Integer userId;
-
-    private Integer brand;
-
-    private Integer version;
-
+    @ApiField("brand_id")
+    private Integer brandId;
+    @ApiField("brand_name")
+    private String brandName;
+    @ApiField("series_id")
+    private Integer seriesId;
+    @ApiField("series_name")
+    private String seriesName;
+    @ApiField("bicycle_mark")
     private String bicycleNumber;
-
+    @ApiField("buy_time")
     private Date buyTime;
-
+    @ApiField("price")
     private Double price;
-
+    @ApiField("if_assembly")
     private String ifAssembly;
-
+    @ApiField("if_public")
     private String ifPublic;
-
+    @ApiField("dep_rate")
     private Integer depreciationRate;
 
     private Date inputTime;
+    @ApiField("main_image")
+    private String mainImage;
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
+
+    public String getMainImage() {
+        return mainImage;
+    }
+
+    public void setMainImage(String mainImage) {
+        this.mainImage = mainImage;
+    }
+
+    public Integer getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Integer brandId) {
+        this.brandId = brandId;
+    }
+
+    public String getBrandName() {
+        return brandName;
+    }
+
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
+    }
+
+    public Integer getSeriesId() {
+        return seriesId;
+    }
+
+    public void setSeriesId(Integer seriesId) {
+        this.seriesId = seriesId;
+    }
+
+    public String getSeriesName() {
+        return seriesName;
+    }
+
+    public void setSeriesName(String seriesName) {
+        this.seriesName = seriesName;
+    }
 
     private static final long serialVersionUID = 1L;
-
-    public Integer getBicycleId() {
-        return bicycleId;
-    }
-
-    public void setBicycleId(Integer bicycleId) {
-        this.bicycleId = bicycleId;
-    }
 
     public Integer getUserId() {
         return userId;
@@ -42,22 +93,6 @@ public class OwnBicycle implements Serializable {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }
-
-    public Integer getBrand() {
-        return brand;
-    }
-
-    public void setBrand(Integer brand) {
-        this.brand = brand;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
     }
 
     public String getBicycleNumber() {
@@ -122,10 +157,7 @@ public class OwnBicycle implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", bicycleId=").append(bicycleId);
         sb.append(", userId=").append(userId);
-        sb.append(", brand=").append(brand);
-        sb.append(", version=").append(version);
         sb.append(", bicycleNumber=").append(bicycleNumber);
         sb.append(", buyTime=").append(buyTime);
         sb.append(", price=").append(price);

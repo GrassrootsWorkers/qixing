@@ -1,10 +1,15 @@
 package com.dream.qixing.mobile.model.bicycle;
 
+import com.dream.qixing.mobile.mapping.ApiField;
+import com.dream.qixing.mobile.mapping.ApiListField;
+
 import java.io.Serializable;
+import java.util.List;
 
 public class BicycleBrand implements Serializable {
+    @ApiField("brand_id")
     private Integer brandId;
-
+    @ApiField("brand_name")
     private String brandName;
 
     private String brandStory;
@@ -17,8 +22,19 @@ public class BicycleBrand implements Serializable {
      * 0：停用1：启用
      */
     private Integer status;
+    @ApiListField("brand_series")
+    @ApiField("series")
+    private List<BicycleSeries> seriesList;
 
     private static final long serialVersionUID = 1L;
+
+    public List<BicycleSeries> getSeriesList() {
+        return seriesList;
+    }
+
+    public void setSeriesList(List<BicycleSeries> seriesList) {
+        this.seriesList = seriesList;
+    }
 
     public Integer getBrandId() {
         return brandId;
