@@ -7,22 +7,28 @@ import com.dream.qixing.mobile.control.action.BaseAction;
 public class ApplyActivityAction extends BaseAction {
     private Integer activityId;
 
-    private Integer userId;
+    private Integer userNumber;
 
-	private String type;
+	private String applyType;
 
     public String execute(){
-    	if("add".equals(type)){
-			this.setIsSuccessful(true);
-			this.setStatusCode(200);
-			this.setDescription("申请成功！");
-			this.setUserId(10000);
-			return "";
+    	if("add".equals(applyType)){
+			if(activityId ==0){
+				this.setIsSuccessful(false);
+				this.setStatusCode(400);
+				this.setDescription("活动已经报满");
+				return "";
+			}else{
+				this.setIsSuccessful(true);
+				this.setStatusCode(200);
+				this.setDescription("申请成功！");
+				return "";
+			}
+
 		}else{
 			this.setIsSuccessful(true);
 			this.setStatusCode(200);
 			this.setDescription("退出成功！");
-			this.setUserId(10000);
 			return "";
 		}
 
@@ -41,23 +47,19 @@ public class ApplyActivityAction extends BaseAction {
 		this.activityId = activityId;
 	}
 
-	@Override
-	public Integer getUserId() {
-		return userId;
+	public Integer getUserNumber() {
+		return userNumber;
 	}
 
-	@Override
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUserNumber(Integer userNumber) {
+		this.userNumber = userNumber;
 	}
 
-	@Override
-	public String getType() {
-		return type;
+	public String getApplyType() {
+		return applyType;
 	}
 
-	@Override
-	public void setType(String type) {
-		this.type = type;
+	public void setApplyType(String applyType) {
+		this.applyType = applyType;
 	}
 }
