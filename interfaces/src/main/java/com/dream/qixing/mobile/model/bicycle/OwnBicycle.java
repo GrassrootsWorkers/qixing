@@ -36,6 +36,16 @@ public class OwnBicycle implements Serializable {
     private Date inputTime;
     @ApiField("main_image")
     private String mainImage;
+    @ApiField("images")
+    private String images;
+
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
 
     public Integer getId() {
         return Id;
