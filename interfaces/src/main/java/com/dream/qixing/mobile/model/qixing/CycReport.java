@@ -1,20 +1,24 @@
 package com.dream.qixing.mobile.model.qixing;
 
+import com.dream.qixing.mobile.mapping.ApiField;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class CycReport implements Serializable {
+    @ApiField("report_id")
     private Integer cysReportId;
-
+    @ApiField("user_number")
     private Integer userId;
-
+    @ApiField("name")
     private String qxName;
 
     private Date startTime;
 
     private Date endTime;
-
-    private String gpsStrs;
+    @ApiField("mileage")
+    private Double mileage;
+    private String traces;
 
     private Integer difficultyDeg;
 
@@ -27,15 +31,56 @@ public class CycReport implements Serializable {
     /**
      * 时分秒
      */
-    private Float timeConsume;
+    @ApiField("time_consume")
+    private String timeConsume;
 
     private Float caloricValue;
 
     private Integer ifTeam;
 
+    @ApiField("road_book_id")
     private Integer roadBookId;
 
+    @ApiField("speed_chart")
+    private String speedChart;
+    @ApiField("alt_chart")
+    private String altitudeChart;
+    @ApiField("trace_image")
+    private String traceImage;
+
     private static final long serialVersionUID = 1L;
+
+    public String getTraceImage() {
+        return traceImage;
+    }
+
+    public void setTraceImage(String traceImage) {
+        this.traceImage = traceImage;
+    }
+
+    public Double getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(Double mileage) {
+        this.mileage = mileage;
+    }
+
+    public String getSpeedChart() {
+        return speedChart;
+    }
+
+    public void setSpeedChart(String speedChart) {
+        this.speedChart = speedChart;
+    }
+
+    public String getAltitudeChart() {
+        return altitudeChart;
+    }
+
+    public void setAltitudeChart(String altitudeChart) {
+        this.altitudeChart = altitudeChart;
+    }
 
     public Integer getCysReportId() {
         return cysReportId;
@@ -77,12 +122,12 @@ public class CycReport implements Serializable {
         this.endTime = endTime;
     }
 
-    public String getGpsStrs() {
-        return gpsStrs;
+    public String getTraces() {
+        return traces;
     }
 
-    public void setGpsStrs(String gpsStrs) {
-        this.gpsStrs = gpsStrs == null ? null : gpsStrs.trim();
+    public void setTraces(String traces) {
+        this.traces = traces;
     }
 
     public Integer getDifficultyDeg() {
@@ -117,11 +162,11 @@ public class CycReport implements Serializable {
         this.lowestSpeed = lowestSpeed;
     }
 
-    public Float getTimeConsume() {
+    public String getTimeConsume() {
         return timeConsume;
     }
 
-    public void setTimeConsume(Float timeConsume) {
+    public void setTimeConsume(String timeConsume) {
         this.timeConsume = timeConsume;
     }
 
@@ -160,7 +205,7 @@ public class CycReport implements Serializable {
         sb.append(", qxName=").append(qxName);
         sb.append(", startTime=").append(startTime);
         sb.append(", endTime=").append(endTime);
-        sb.append(", gpsStrs=").append(gpsStrs);
+        sb.append(", gpsStrs=").append(traces);
         sb.append(", difficultyDeg=").append(difficultyDeg);
         sb.append(", averageSpeed=").append(averageSpeed);
         sb.append(", highestSpeed=").append(highestSpeed);
