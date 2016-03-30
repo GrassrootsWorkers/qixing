@@ -13,7 +13,7 @@ public class User implements Serializable {
     private String nickName;
     @ApiField("sex")
     private String sex;
-    @ApiField("user_image")
+    @ApiField("user_img")
     private String image;
 
     /**
@@ -26,7 +26,7 @@ public class User implements Serializable {
     private String height;
     @ApiField("weight")
     private String weight;
-    @ApiField("cyclingAge")
+    @ApiField("cycling_age")
     private Integer bicycleAge;
     @ApiField("name")
     private String realName;
@@ -45,6 +45,7 @@ public class User implements Serializable {
 
     private Integer total;
 
+
     /**
      * 根据使用次数和组件车队的次数
      */
@@ -56,6 +57,26 @@ public class User implements Serializable {
      * 介绍人
      */
     private Integer recommendId;
+    @ApiField("total_mileage")
+    private String totalMileage;
+    @ApiField("total_time")
+    private String totalTime;
+
+    public String getTotalMileage() {
+        return totalMileage;
+    }
+
+    public void setTotalMileage(String totalMileage) {
+        this.totalMileage = totalMileage;
+    }
+
+    public String getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(String totalTime) {
+        this.totalTime = totalTime;
+    }
 
     private static final long serialVersionUID = 1L;
 
