@@ -1,36 +1,48 @@
 package com.dream.qixing.mobile.model.qixing;
 
+import com.dream.qixing.mobile.mapping.ApiField;
+
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-
-import com.dream.qixing.mobile.mapping.ApiField;
-import com.dream.qixing.mobile.mapping.ApiListField;
 
 public class RoadBook implements Serializable {
 	@ApiField("road_book_id")
     private Integer roadBookId;
-    @ApiField("road_name")
+    @ApiField("name")
     private String name;
-    @ApiField("road_map")
-    private String roadMap;
+    @ApiField("road_name")
+    private String roadName;
     @ApiField("creator")
     private String creator;
     @ApiField("mileage")
     private Integer mileage;
-
-    private Integer estimatedTime;
     @ApiField("difficulty")
     private Integer difficulty;
-
-    @ApiField("if_use")
+    @ApiField("status")
     private Integer status;
+    @ApiField("status_name")
+    private String statusName;
     @ApiField("create_time")
     private Date createTime;
-
-
-
+    @ApiField("traces")
+    private String traces;
 	private static final long serialVersionUID = 1L;
+
+    public String getTraces() {
+        return traces;
+    }
+
+    public void setTraces(String traces) {
+        this.traces = traces;
+    }
+
+    public String getStatusName() {
+        return statusName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
+    }
 
     public Integer getRoadBookId() {
         return roadBookId;
@@ -48,12 +60,12 @@ public class RoadBook implements Serializable {
         this.name = name;
     }
 
-    public String getRoadMap() {
-        return roadMap;
+    public String getRoadName() {
+        return roadName;
     }
 
-    public void setRoadMap(String roadMap) {
-        this.roadMap = roadMap;
+    public void setRoadName(String roadName) {
+        this.roadName = roadName;
     }
 
     public String getCreator() {
@@ -70,14 +82,6 @@ public class RoadBook implements Serializable {
 
     public void setMileage(Integer mileage) {
         this.mileage = mileage;
-    }
-
-    public Integer getEstimatedTime() {
-        return estimatedTime;
-    }
-
-    public void setEstimatedTime(Integer estimatedTime) {
-        this.estimatedTime = estimatedTime;
     }
 
     public Integer getDifficulty() {

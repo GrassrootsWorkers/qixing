@@ -3,13 +3,7 @@ package com.dream.qixing.mobile.control.action.bicycleteam;
 import com.dream.qixing.mobile.config.ApiAction;
 import com.dream.qixing.mobile.control.action.BaseAction;
 import com.dream.qixing.mobile.mapping.ApiField;
-import com.dream.qixing.mobile.model.bicycleteam.Activity;
 import com.dream.qixing.mobile.model.bicycleteam.BicycleTeam;
-import com.dream.qixing.mobile.model.bicycleteam.Friend;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @ApiAction("bicycle.team.baseInfo")
 public class QueryBicycleBaseInfoAction extends BaseAction {
