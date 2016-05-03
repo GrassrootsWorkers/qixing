@@ -32,6 +32,7 @@
 		<typeAlias alias="vender" type="com.dream.qixing.model.vender.Vender" />
 			<!--用户信息-->
 		<typeAlias alias="user" type="com.dream.qixing.model.user.User" />
+		<typeAlias alias="userQuery" type="com.dream.qixing.model.user.UserQuery" />
 			<!--用户基本信息-->
 		<typeAlias alias="userInfo" type="com.dream.qixing.model.user.UserInfo" />
 
