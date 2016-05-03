@@ -4,10 +4,10 @@
     <description></description>
     <display-name>ApiControl</display-name>
     <servlet-name>ApiControl</servlet-name>
-    <servlet-class>com.dream.qixing.mobile.control.ApiControl</servlet-class>
+    <servlet-class>com.dream.qixing.control.ApiControl</servlet-class>
     <init-param>
     	<param-name>actionPackages</param-name>
-    	<param-value>com.dream.qixing.mobile.control.action</param-value>
+    	<param-value>com.dream.qixing.control.action</param-value>
     </init-param>
     <load-on-startup>2</load-on-startup>
   </servlet>
@@ -19,7 +19,7 @@
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
     <filter-class>
-			com.dream.qixing.mobile.control.helper.CharacterSetEncodingFilter
+			com.dream.qixing.control.helper.CharacterSetEncodingFilter
 	</filter-class>
 	<init-param>
   		<param-name>encode</param-name>
@@ -39,7 +39,7 @@
 		</filter-class>
     <init-param>
       <param-name>actionPackages</param-name>
-      <param-value>com.dream.qixing.mobile.control.action</param-value>
+      <param-value>com.dream.qixing.control.action</param-value>
     </init-param>
   </filter>
   

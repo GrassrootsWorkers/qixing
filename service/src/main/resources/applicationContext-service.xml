@@ -9,7 +9,7 @@
 	
 	<import resource="classpath*:config/*.xml"/>
     <import resource="classpath*:spring-datasource.xml"/>
-	<import resource="classpath*:spring/**/spring-*.xml"/>
+	<import resource="classpath*:spring/**/spring_*.xml"/>
 	
 	<!-- define the SqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -20,12 +20,12 @@
 	<aop:aspectj-autoproxy/>
 	<aop:config  proxy-target-class="true">
 		<aop:pointcut id="serviceMethod"
-			expression="execution(* com.dream.qixing.mobile.business..*.*(..))" />
+			expression="execution(* com.dream.qixing.business..*.*(..))" />
 		<aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice" />
 	</aop:config>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.dream.qixing.mobile.persistence.interfaces" />
+		<property name="basePackage" value="com.dream.qixing.persistence.interfaces" />
 	</bean>
 
 </beans>

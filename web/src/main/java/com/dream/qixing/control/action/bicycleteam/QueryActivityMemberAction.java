@@ -5,6 +5,7 @@ import com.dream.qixing.mapping.ApiListField;
 import com.dream.qixing.config.ApiAction;
 import com.dream.qixing.mapping.ApiField;
 import com.dream.qixing.model.user.User;
+import com.dream.qixing.model.user.UserVo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,15 +19,15 @@ public class QueryActivityMemberAction extends BaseAction {
     private int totalPage;
     @ApiListField("users")
     @ApiField("user")
-    private List<User> users;
+    private List<UserVo> users;
 
     @Override
     public String execute() {
         pageIndex = pageIndex+1;
         totalPage = 10;
         if (activityId > 0) {
-            users = new ArrayList<User>();
-            User user = new User();
+            users = new ArrayList<UserVo>();
+            UserVo user = new UserVo();
             user.setUserId(100001);
             user.setImage("http://p1.qixing.com/100001/10001.jpg");
             user.setNickName("骑行者");
@@ -69,11 +70,11 @@ public class QueryActivityMemberAction extends BaseAction {
         this.pageIndex = pageIndex;
     }
 
-    public List<User> getUsers() {
+    public List<UserVo> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(List<UserVo> users) {
         this.users = users;
     }
 

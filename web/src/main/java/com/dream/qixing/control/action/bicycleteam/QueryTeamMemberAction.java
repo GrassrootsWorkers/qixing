@@ -5,6 +5,7 @@ import com.dream.qixing.control.action.BaseAction;
 import com.dream.qixing.mapping.ApiField;
 import com.dream.qixing.mapping.ApiListField;
 import com.dream.qixing.model.user.User;
+import com.dream.qixing.model.user.UserVo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class QueryTeamMemberAction extends BaseAction {
     private Integer pageIndex = 1;
     @ApiListField("users")
     @ApiField("user")
-    private List<User> users;
+    private List<UserVo> users;
     @ApiField("total_page")
     private int totalPage;
     @Override
@@ -24,8 +25,8 @@ public class QueryTeamMemberAction extends BaseAction {
         if (bicycleId > 0) {
             pageIndex = pageIndex+1;
             totalPage = 10;
-            users = new ArrayList<User>();
-            User user = new User();
+            users = new ArrayList<UserVo>();
+            UserVo user = new UserVo();
             user.setUserId(100001);
             user.setImage("http://p1.qixing.com/100001/10001.jpg");
             user.setNickName("骑行者");
@@ -59,11 +60,11 @@ public class QueryTeamMemberAction extends BaseAction {
         this.pageIndex = pageIndex;
     }
 
-    public List<User> getUsers() {
+    public List<UserVo> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(List<UserVo> users) {
         this.users = users;
     }
 

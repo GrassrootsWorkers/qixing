@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="GBK"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-           http://www.springframework.org/schema/context
-           http://www.springframework.org/schema/context/spring-context-2.5.xsd
-           http://www.springframework.org/schema/tx
-           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
-           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
 	default-init-method="init" default-destroy-method="destroy">
 	
-	<bean id="parameterInterceptor" class="com.dream.qixing.mobile.interceptor.suport.ParameterInterceptor"></bean>
-	<bean id="signCheckInterceptor" class="com.dream.qixing.mobile.interceptor.suport.SignCheckInterceptor"></bean>
+	<bean id="parameterInterceptor" class="com.dream.qixing.interceptor.suport.ParameterInterceptor"></bean>
+	<bean id="signCheckInterceptor" class="com.dream.qixing.interceptor.suport.SignCheckInterceptor"></bean>
 	
-	<bean class="com.dream.qixing.mobile.interceptor.InterceptorRef" id="baseInterceptor">
+	<bean class="com.dream.qixing.interceptor.InterceptorRef" id="baseInterceptor">
 		<property name="intercetors">
 			<list>
 				<ref bean="signCheckInterceptor"/>

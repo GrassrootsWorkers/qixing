@@ -29,14 +29,20 @@
 
 	<!-- 全局别名设置，在映射文件中只需写别名，而不必写出整个类路径 -->
 	<typeAliases>
-		<typeAlias alias="bgUser" type="com.dream.qixing.mobile.model.vender.Vender" />
-     
+		<typeAlias alias="vender" type="com.dream.qixing.model.vender.Vender" />
+			<!--用户信息-->
+		<typeAlias alias="user" type="com.dream.qixing.model.user.User" />
+			<!--用户基本信息-->
+		<typeAlias alias="userInfo" type="com.dream.qixing.model.user.UserInfo" />
+
+
 	</typeAliases>
 
 	<!-- 非注解的sql映射文件配置，如果使用mybatis注解，该mapper无需配置，但是如果mybatis注解中包含@resultMap注解，则mapper必须配置，给resultMap注解使用 -->
 	<mappers>
-		<mapper resource="persistence/vender/bg_vender_sql.xml" />
-		
+		<mapper resource="persistence/vender/vender_sql.xml" />
+		<mapper resource="persistence/user/user_sql.xml" />
+
 	</mappers>
 
 </configuration> 

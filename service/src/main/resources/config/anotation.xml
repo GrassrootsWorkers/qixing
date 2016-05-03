@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
 	<!-- 扫描 -->
-	<context:component-scan base-package="com.dream.qixing.mobile.business">
+	<context:component-scan base-package="com.dream.qixing.business">
 		<!-- 不包括Controller层 -->
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>

@@ -4,6 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
     
-	<bean id="venderService" class="com.dream.qixing.mobile.business.impl.vender.VenderServiceImpl"/>
+	<bean id="venderService" class="com.dream.qixing.business.impl.vender.VenderServiceImpl"/>
 	
 </beans>

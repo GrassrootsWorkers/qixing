@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dream.qixing.persistence.interfaces.user.IUserDao">
+    <resultMap id="user_result_map" type="user">
+        <result column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="mobile" property="mobile"/>
+        <result column="password" property="password"/>
+        <result column="nick_name" property="nickName"/>
+    </resultMap>
+    <sql id="query_user_sql">
+        userId,mobile,userName,password,nick_name
+    </sql>
+    <sql id="insert_user_sql">
+      mobile,user_name,password,nick_name
+    </sql>
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="userId" parameterType="user">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="userId">
+            SELECT LAST_INSERT_ID() AS userId
+        </selectKey>
+        insert into qx_user (<include refid='insert_user_sql'/>) values (#{mobile},#{userName},#{password},#{nickName})
+    </insert>
+</mapper>

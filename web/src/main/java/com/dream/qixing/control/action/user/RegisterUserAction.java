@@ -2,6 +2,10 @@ package com.dream.qixing.control.action.user;
 
 import com.dream.qixing.control.action.BaseAction;
 import com.dream.qixing.config.ApiAction;
+import com.dream.qixing.interfaces.user.IUserService;
+import com.dream.qixing.model.user.User;
+import com.dream.qixing.util.md5.UtilMD5;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,18 +20,34 @@ public class RegisterUserAction extends BaseAction {
     private String pwd1;
     private String pwd2;
     private String validateCode;
+    @Autowired
+    IUserService userService;
     @Override
     public String execute(){
+        this.getSession().setAttribute("18618102693","123456");
         if(!validateMobile(mobile)){
             this.setIsSuccessful(false);
             this.setStatusCode(500);
             this.setDescription("手机号格式不正确！");
             return"";
         }
-        this.setUserId(10000);
-        this.setIsSuccessful(true);
-        this.setStatusCode(200);
-        this.setDescription("注册成功！");
+        String code = (String)this.getSession().getAttribute(mobile);
+        if(code != null && code.equals(validateCode)){
+            User user = new User();
+            user.setPassword(UtilMD5.md5(pwd1));
+            user.setMobile(mobile);
+            user.setUserName(mobile.substring(0,3)+"****"+mobile.substring(7));
+            int userId = userService.insertUser(user);
+            this.setUserId(userId);
+            this.setIsSuccessful(true);
+            this.setStatusCode(200);
+            this.setDescription("注册成功！");
+        }else {
+            this.setUserId(null);
+            this.setIsSuccessful(false);
+            this.setStatusCode(400);
+            this.setDescription("验证码错误！");
+        }
         return "";
     }
     protected   boolean validateMobile(String mobile){
@@ -38,6 +58,14 @@ public class RegisterUserAction extends BaseAction {
     @Override
     public String getResponseName() {
         return null;
+    }
+
+    public IUserService getUserService() {
+        return userService;
+    }
+
+    public void setUserService(IUserService userService) {
+        this.userService = userService;
     }
 
     public String getValidateCode() {

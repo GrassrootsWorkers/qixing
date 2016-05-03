@@ -4,6 +4,7 @@ import com.dream.qixing.config.ApiAction;
 import com.dream.qixing.control.action.BaseAction;
 import com.dream.qixing.mapping.ApiField;
 import com.dream.qixing.model.user.User;
+import com.dream.qixing.model.user.UserVo;
 
 /**
  * Created by Administrator on 2016/3/2 0002.
@@ -12,11 +13,11 @@ import com.dream.qixing.model.user.User;
 public class GetUserInfoAction extends BaseAction {
 
     @ApiField("user")
-    private User user ;
+    private UserVo user ;
     private int userNumber;
     public String execute(){
         if(userNumber ==1000){
-            user =new User();
+            user =new UserVo();
             user.setUserId(1000);
             user.setBicycleAge(10);
             user.setHeight("60Kg");
@@ -51,11 +52,11 @@ public class GetUserInfoAction extends BaseAction {
         this.userNumber = userNumber;
     }
 
-    public User getUser() {
+    public UserVo getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserVo user) {
         this.user = user;
     }
 }
