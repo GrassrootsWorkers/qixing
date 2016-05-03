@@ -22,4 +22,5 @@ public class UserServiceImpl implements IUserService {
     public int insertUserInfo(UserInfo user) {
         return 0;
     }
+
 }

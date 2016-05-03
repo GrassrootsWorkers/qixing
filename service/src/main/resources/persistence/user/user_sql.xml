@@ -20,7 +20,11 @@
         </selectKey>
         insert into qx_user (<include refid='insert_user_sql'/>) values (#{mobile},#{userName},#{password},#{nickName})
     </insert>
-    <select id ="queryUserByUserName" parameterType="userQuery" resultMap="user_result_map">
-        select <include refid="query_user_sql"/> from qx_user where user_name #{userName}
+    <select id ="queryUser" parameterType="userQuery" resultMap="user_result_map">
+        select <include refid="query_user_sql"/> from qx_user where 1=1
+        <if test="userName!= null ">
+            and user_name #{userName}
+        </if>
+
     </select>
 </mapper>
