@@ -2,7 +2,12 @@ package com.dream.qixing.control.action.user;
 
 import com.dream.qixing.control.action.BaseAction;
 import com.dream.qixing.config.ApiAction;
+import com.dream.qixing.interfaces.user.IUserService;
 import com.dream.qixing.mapping.ApiField;
+import com.dream.qixing.model.user.User;
+import com.dream.qixing.model.user.UserQuery;
+import com.dream.qixing.util.md5.UtilMD5;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by Administrator on 2016/3/1 0001.
@@ -14,6 +19,9 @@ public class UserLoginAction extends BaseAction {
     private String password;
     @ApiField("if_first")
     private String ifFirst;
+
+    @Autowired
+    IUserService userService;
     public String execute(){
         if(!validateMobile(mobile)){
             this.setIsSuccessful(false);
@@ -21,20 +29,29 @@ public class UserLoginAction extends BaseAction {
             this.setDescription("手机号格式不正确！");
             return"";
         }
-        if("admin1".equals(password)){
-            this.setIsSuccessful(true);
-            this.setStatusCode(200);
-            this.setDescription("登录成功！");
-            this.setUserId(10000);
-            ifFirst="Y";
-            return "";
+        UserQuery query = new UserQuery();
+        query.setMobile(mobile);
+        User user = userService.queryUser(query);
+        if(user == null){
+            this.setIsSuccessful(false);
+            this.setStatusCode(501);
+            this.setDescription("用户不存在！");
+            return"";
         }
-        if("admin".equals(password)){
+        if(user.getIfFirstLogin() == User.first_login){
+            ifFirst ="Y";
+        }else{
+            ifFirst = "N";
+        }
+        if(user.getPassword().equals(UtilMD5.md5(password))){
             this.setIsSuccessful(true);
             this.setStatusCode(200);
             this.setDescription("登录成功！");
-            this.setUserId(10000);
-            ifFirst="N";
+            this.setUserId(user.getUserId());
+            //在修改用户信息中改变该值
+            //user.setIfFirstLogin(User.no_first_login);
+            //userService.updateUser(user);
+            this.getSession().setAttribute("login_"+mobile,user.getUserId());
             return "";
         }else{
             this.setIsSuccessful(false);

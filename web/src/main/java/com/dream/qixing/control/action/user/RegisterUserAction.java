@@ -4,9 +4,11 @@ import com.dream.qixing.control.action.BaseAction;
 import com.dream.qixing.config.ApiAction;
 import com.dream.qixing.interfaces.user.IUserService;
 import com.dream.qixing.model.user.User;
+import com.dream.qixing.model.user.UserQuery;
 import com.dream.qixing.util.md5.UtilMD5;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,11 +26,19 @@ public class RegisterUserAction extends BaseAction {
     IUserService userService;
     @Override
     public String execute(){
-        this.getSession().setAttribute("18618102693","123456");
         if(!validateMobile(mobile)){
             this.setIsSuccessful(false);
-            this.setStatusCode(500);
+            this.setStatusCode(501);
             this.setDescription("手机号格式不正确！");
+            return"";
+        }
+        UserQuery query = new UserQuery();
+        query.setMobile(mobile);
+        User queryUser = userService.queryUser(query);
+        if(queryUser != null){
+            this.setIsSuccessful(false);
+            this.setStatusCode(501);
+            this.setDescription("手机已经注册！");
             return"";
         }
         String code = (String)this.getSession().getAttribute(mobile);
@@ -37,6 +47,9 @@ public class RegisterUserAction extends BaseAction {
             user.setPassword(UtilMD5.md5(pwd1));
             user.setMobile(mobile);
             user.setUserName(mobile.substring(0,3)+"****"+mobile.substring(7));
+            user.setIfFirstLogin(User.first_login);
+            user.setRegisteredTime(new Date());
+            user.setLastLoginTime(new Date());
             int userId = userService.insertUser(user);
             this.setUserId(userId);
             this.setIsSuccessful(true);
@@ -45,7 +58,7 @@ public class RegisterUserAction extends BaseAction {
         }else {
             this.setUserId(null);
             this.setIsSuccessful(false);
-            this.setStatusCode(400);
+            this.setStatusCode(501);
             this.setDescription("验证码错误！");
         }
         return "";

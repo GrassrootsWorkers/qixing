@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
+
+    public static final int first_login = 0;
+    public static final int no_first_login = 1;
+
     private Integer userId;
 
     private String nickName;
@@ -23,6 +27,8 @@ public class User implements Serializable {
     private String spreadCode;
 
     private String mobile;
+
+    private int ifFirstLogin;
 
     private static final long serialVersionUID = 1L;
 
@@ -104,6 +110,14 @@ public class User implements Serializable {
 
     public void setSpreadCode(String spreadCode) {
         this.spreadCode = spreadCode == null ? null : spreadCode.trim();
+    }
+
+    public int getIfFirstLogin() {
+        return ifFirstLogin;
+    }
+
+    public void setIfFirstLogin(int ifFirstLogin) {
+        this.ifFirstLogin = ifFirstLogin;
     }
 
     @Override

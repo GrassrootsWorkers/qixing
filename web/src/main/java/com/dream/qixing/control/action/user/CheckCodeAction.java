@@ -9,6 +9,7 @@ import org.apache.zookeeper.server.SessionTracker;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,16 +26,20 @@ public class CheckCodeAction extends BaseAction {
     @ApiField("checkCode")
     private String checkCode;
     @Override
-    public String execute(){
-        String code = RandomStrUtil.getNumStr(6);
+    public String execute() throws UnsupportedEncodingException {
+        checkCode = RandomStrUtil.getNumStr(6);
         //发送验证码
-        Map<String,Object> returnContent = chuangLanSend("http://222.73.117.156/msg/HttpBatchSendSM",code,mobile);
+        Map<String,Object> returnContent = chuangLanSend("http://222.73.117.156/msg/HttpBatchSendSM", URLEncoder.encode("您的验证码是："+checkCode+"打死也不要告诉别人哦！","UTF-8"),mobile);
         if(returnContent == null || "07".equals(returnContent.get("error"))){
-
+            this.setIsSuccessful(false);
+            this.setStatusCode(500);
+            this.setDescription("发送验证码失败，请稍后再试!");
         }else{
-            this.getSession().setAttribute(mobile,code);
+            this.getSession().setAttribute(mobile,checkCode);
+            this.setIsSuccessful(true);
+            this.setStatusCode(200);
+            this.setDescription("发送验证码成功!");
         }
-
         return "";
     }
 
@@ -57,20 +62,20 @@ public class CheckCodeAction extends BaseAction {
             params.put("mobile",mobile);
             params.put("msg",URLEncoder.encode(messages, "UTF-8"));
             params.put("needstatus","true");
-            WebUtils.doGet(url,params,"UTF-8");
+            result = WebUtils.doGet(url,params,"UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
         if(result !=null && result != ""){
-            String[] strs = result.split(",");
-            if(strs.length <= 2){
+            String[] strs = result.split("\n");
+            if(strs.length < 2){
                 resultMap.put("error", "07");
                 resultMap.put("code", "07");
                 resultMap.put("msgid",null);
             }else{
-                String msgId = strs[2];
+                String msgId = strs[1];
                 resultMap.put("error", "0");
                 resultMap.put("code", "0");
                 resultMap.put("msgid",msgId);

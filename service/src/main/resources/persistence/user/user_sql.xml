@@ -7,24 +7,38 @@
         <result column="mobile" property="mobile"/>
         <result column="password" property="password"/>
         <result column="nick_name" property="nickName"/>
+        <result column="registered_time" property="registeredTime"/>
+        <result column="last_login_time" property="lastLoginTime"/>
     </resultMap>
     <sql id="query_user_sql">
-        userId,mobile,userName,password,nick_name
+        user_id,mobile,user_name,password,nick_name,if_first_login,registered_time,last_login_time
     </sql>
     <sql id="insert_user_sql">
-      mobile,user_name,password,nick_name
+      mobile,user_name,password,nick_name,if_first_login,registered_time,last_login_time
     </sql>
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="userId" parameterType="user">
         <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="userId">
             SELECT LAST_INSERT_ID() AS userId
         </selectKey>
-        insert into qx_user (<include refid='insert_user_sql'/>) values (#{mobile},#{userName},#{password},#{nickName})
+        insert into qx_user (<include refid='insert_user_sql'/>) values (#{mobile},#{userName},#{password},#{nickName},#{ifFirstLogin},#{registeredTime},#{lastLoginTime})
     </insert>
     <select id ="queryUser" parameterType="userQuery" resultMap="user_result_map">
         select <include refid="query_user_sql"/> from qx_user where 1=1
-        <if test="userName!= null ">
-            and user_name #{userName}
+        <if test="mobile!= null ">
+            and mobile=  #{mobile}
         </if>
-
     </select>
+    <update id="updateUser" parameterType="user">
+        update qx_user
+        <set>
+          <if test="lastLoginTime">
+              last_login_time = #{lastLoginTime},
+          </if>
+          <if test="ifFirstLogin ==1">
+               if_first_login = #{ifFirstLogin},
+          </if>
+
+        </set>
+        where  user_id = #{userId}
+    </update>
 </mapper>
