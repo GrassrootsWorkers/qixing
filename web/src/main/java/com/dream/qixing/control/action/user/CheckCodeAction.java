@@ -71,9 +71,12 @@ public class CheckCodeAction extends BaseAction {
         if(result !=null && result != ""){
             String[] strs = result.split("\n");
             if(strs.length < 2){
-                resultMap.put("error", "07");
+               /* resultMap.put("error", "07");
                 resultMap.put("code", "07");
-                resultMap.put("msgid",null);
+                resultMap.put("msgid",null);*/
+                resultMap.put("error", "0");
+                resultMap.put("code", "07");
+                resultMap.put("msgid","111");
             }else{
                 String msgId = strs[1];
                 resultMap.put("error", "0");

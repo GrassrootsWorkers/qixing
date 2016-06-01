@@ -2,6 +2,10 @@ package com.dream.qixing.control.action.user;
 
 import com.dream.qixing.control.action.BaseAction;
 import com.dream.qixing.config.ApiAction;
+import com.dream.qixing.interfaces.user.IUserService;
+import com.dream.qixing.model.user.User;
+import com.dream.qixing.model.user.UserQuery;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by Administrator on 2016/3/2 0002.
@@ -15,8 +19,36 @@ public class UpdateUserInfoAction extends BaseAction {
     private String height;
     private String weight;
     private String name;
+    private String mobile;
+    @Autowired
+    IUserService userService;
     public String execute(){
+        if(this.getUserId()==null){
+            this.setIsSuccessful(false);
+            this.setStatusCode(500);
+            this.setDescription("请登录！再修改用户信息");
+        }
         //判定用户是否登录
+        UserQuery query = new UserQuery();
+        query.setUserId(this.getUserId());
+        User user = userService.queryUser(query);
+        if(user == null){
+            this.setIsSuccessful(false);
+            this.setStatusCode(500);
+            this.setDescription("用户不存在！");
+        }
+        Object obj = this.getSession().getAttribute("login_"+user.getMobile());
+        if(obj == null){
+            this.setIsSuccessful(false);
+            this.setStatusCode(500);
+            this.setDescription("请登录！再修改用户信息");
+        }
+        int loggedUserId = (Integer)obj;
+        if(this.getUserId() != loggedUserId){
+            this.setIsSuccessful(false);
+            this.setStatusCode(500);
+            this.setDescription("请登录！再修改用户信息");
+        }
         boolean ifLogin = false;
         if(ifLogin){
             this.setIsSuccessful(true);

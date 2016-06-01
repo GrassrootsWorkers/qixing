@@ -1,5 +1,10 @@
 package com.dream.qixing.model.user;
-public class UserQuery {
+
+import com.dream.qixing.model.base.BaseEntity;
+
+public class UserQuery extends BaseEntity {
+
+    private Integer userId;
 
     private String mobile;
 
@@ -9,11 +14,7 @@ public class UserQuery {
 
     private String realName;
 
-    protected Integer pageNo = 1;
-
     protected Integer startRow;
-
-    protected Integer pageSize = 10;
 
     protected String fields;
 
@@ -49,13 +50,6 @@ public class UserQuery {
         this.realName = realName;
     }
 
-    public Integer getPageNo() {
-        return pageNo;
-    }
-
-    public void setPageNo(Integer pageNo) {
-        this.pageNo = pageNo;
-    }
 
     public Integer getStartRow() {
         return startRow;
@@ -65,19 +59,19 @@ public class UserQuery {
         this.startRow = startRow;
     }
 
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
     public String getFields() {
         return fields;
     }
 
     public void setFields(String fields) {
         this.fields = fields;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

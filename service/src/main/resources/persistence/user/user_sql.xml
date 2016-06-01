@@ -27,6 +27,9 @@
         <if test="mobile!= null ">
             and mobile=  #{mobile}
         </if>
+        <if test="userId !=null">
+            and user_id = #{userId}
+        </if>
     </select>
     <update id="updateUser" parameterType="user">
         update qx_user
