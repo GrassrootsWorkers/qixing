@@ -2,6 +2,7 @@ package com.dream.qixing.control.action.user;
 
 import com.dream.qixing.control.action.BaseAction;
 import com.dream.qixing.config.ApiAction;
+import com.dream.qixing.interceptor.Interceptor;
 import com.dream.qixing.interfaces.user.IUserService;
 import com.dream.qixing.model.user.User;
 import com.dream.qixing.model.user.UserQuery;
@@ -19,6 +20,7 @@ public class UpdateUserInfoAction extends BaseAction {
     private String height;
     private String weight;
     private String name;
+    private String sex;
     private String mobile;
     @Autowired
     IUserService userService;
@@ -49,17 +51,23 @@ public class UpdateUserInfoAction extends BaseAction {
             this.setStatusCode(500);
             this.setDescription("请登录！再修改用户信息");
         }
-        boolean ifLogin = false;
-        if(ifLogin){
-            this.setIsSuccessful(true);
-            this.setStatusCode(200);
-            this.setDescription("修改成功！");
-            return "";
-        }else{
-            this.setIsSuccessful(false);
-            this.setStatusCode(500);
-            this.setDescription("请登录！在修改用户信息");
+        user.setImage(userImg);
+        user.setHeight(height);
+        user.setBicycleAge(Integer.parseInt(cyclingAge));
+        user.setLocation(location);
+        user.setWeight(weight);
+        user.setIfFirstLogin(User.no_first_login);
+        user.setRealName(name);
+        user.setSex(sex);
+        user.setMobile(mobile);
+        user.setNickName(nickName);
+        try{
+            userService.updateUser(user);
+        }catch (Exception e){
+
         }
+
+
 
         return "";
     }
@@ -123,5 +131,29 @@ public class UpdateUserInfoAction extends BaseAction {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public IUserService getUserService() {
+        return userService;
+    }
+
+    public void setUserService(IUserService userService) {
+        this.userService = userService;
     }
 }
